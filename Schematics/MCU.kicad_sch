@@ -5892,17 +5892,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 46.99 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "4"
 			(uuid "b6c27869-85ea-405c-9a89-e2d42c33ac39")
 		)
@@ -6003,17 +5992,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 255.27 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 255.27 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -6658,17 +6636,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 43.18 91.44 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "08dc9dbf-9e7b-4b72-ae7d-f7582933bdf5")
 		)
@@ -6805,17 +6772,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 43.18 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 43.18 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -7057,17 +7013,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 41.91 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "24856d73-b50a-4661-9020-5dc3504a9cf0")
 		)
@@ -7241,17 +7186,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 140.97 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 140.97 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -7489,17 +7423,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 52.07 109.22 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 52.07 109.22 90)
 			(hide yes)
 			(show_name no)
@@ -7777,17 +7700,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 127 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "d2ddc33f-9c0e-404b-949f-b922316d8a31")
 		)
@@ -7882,17 +7794,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 181.61 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 181.61 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -8045,17 +7946,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 227.33 105.41 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 227.33 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -8220,17 +8110,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 242.57 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "10"
 			(uuid "fefaea63-eac6-4bcf-bd83-176ab1c12c82")
 		)
@@ -8349,17 +8228,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 133.35 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 133.35 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -8849,17 +8717,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 220.98 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "2633a460-c660-4184-bfa4-7d17bcee7f70")
 		)
@@ -8996,17 +8853,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 43.18 40.64 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 43.18 40.64 90)
 			(hide yes)
 			(show_name no)
@@ -9610,17 +9456,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 148.59 22.86 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "b433d685-6396-47e6-bce3-8cc995d94f13")
 		)
@@ -9765,17 +9600,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 55.88 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 55.88 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -10132,17 +9956,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 168.91 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "d109c586-de3b-4929-84e9-a69a6a0c1bd3")
 		)
@@ -10420,17 +10233,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 156.21 26.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "7d3d7cf4-ff59-4e40-8e6a-1319b7b49545")
 		)
@@ -10619,17 +10421,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 107.95 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "8e3d5da2-cf96-4c9b-a3ff-74cd3f2fac95")
 		)
@@ -10730,17 +10521,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 133.35 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 133.35 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -10982,17 +10762,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 233.68 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "251d9299-acb3-4c44-91a6-78570cfa7149")
 		)
@@ -11212,17 +10981,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 43.18 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 43.18 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -11507,17 +11265,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 120.65 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "01cfcbef-150e-45e3-9f33-d118fb3fe83f")
 		)
@@ -11706,17 +11453,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 168.91 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "d7f267a5-d736-4953-9933-aaaae528dcc3")
 		)
@@ -11814,17 +11550,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 142.24 26.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 142.24 26.67 0)
 			(hide yes)
 			(show_name no)
@@ -11945,17 +11670,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 168.91 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "9922ec3f-895b-434f-9398-35f6c59bb3c8")
 		)
@@ -12057,17 +11771,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 152.4 116.84 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 152.4 116.84 0)
 			(hide yes)
 			(show_name no)

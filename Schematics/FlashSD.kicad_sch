@@ -1074,17 +1074,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 127 88.9 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "d756213f-ed0f-486d-9fcb-9561ee5ca544")
 		)
@@ -1187,17 +1176,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 111.76 96.52 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 111.76 96.52 90)
 			(hide yes)
 			(show_name no)
@@ -1468,17 +1446,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 172.72 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 172.72 93.98 0)
 			(hide yes)
 			(show_name no)
