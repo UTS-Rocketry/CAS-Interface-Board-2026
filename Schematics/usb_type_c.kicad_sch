@@ -1832,7 +1832,7 @@
 				)
 			)
 		)
-		(property "Description" "USB 2.0-only 16P Type-C Receptacle connector"
+		(property "Description" ""
 			(at 114.3 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -1855,17 +1855,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 114.3 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 114.3 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -2227,17 +2216,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 168.91 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "4"
 			(uuid "b7129328-0591-4257-ad8d-42f0d771f16d")
 		)
@@ -2528,17 +2506,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 181.61 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "d42b3193-2300-4704-b586-077f9d695a8f")
 		)
@@ -2723,17 +2690,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 193.04 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 193.04 85.09 0)
 			(hide yes)
 			(show_name no)

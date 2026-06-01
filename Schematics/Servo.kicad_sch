@@ -1559,17 +1559,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 93.98 85.09 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "d5b5899b-28ab-48b9-add3-2186a7a5f807")
 		)
@@ -1931,17 +1920,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 119.38 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "b2d9750c-917f-44dd-85e3-1822c3d292af")
 		)
@@ -2036,17 +2014,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 168.91 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 168.91 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -2171,17 +2138,6 @@
 			)
 		)
 		(property "SnapEDA_Link" ""
-			(at 184.15 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
 			(at 184.15 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -2461,17 +2417,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 158.75 85.09 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "6d8564f9-c40e-48a3-81ba-ba581541e431")
 		)
@@ -2655,17 +2600,6 @@
 				)
 			)
 		)
-		(property "DESCRIPTION" ""
-			(at 121.92 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "82cac049-cac0-49de-a88f-c302afb2d13f")
 		)
@@ -2735,18 +2669,7 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x04, script generated"
-			(at 133.35 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DESCRIPTION" ""
+		(property "Description" ""
 			(at 133.35 143.51 0)
 			(hide yes)
 			(show_name no)
