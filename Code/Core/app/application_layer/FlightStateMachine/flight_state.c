@@ -2,21 +2,31 @@
 #include "stm32f4xx_hal.h"
 #include "telemetry.h"
 #include "flight_config.h"
+#include "airbrake.h"
 #include <stdint.h>
 #include <math.h>
+#include <string.h>
 
 
 static FSM_Context_t ctx;
+static uint32_t airbrake_last_update_ms;
+
+void pyro_fire_main(void);
+void pyro_fire_drogue(void);
 
 static void FSM_transition(FlightState_t new_state);
+static float FSM_airbrake_dt_s(void);
 
 void FSM_init(void) {
     memset(&ctx, 0, sizeof(FSM_Context_t));
     ctx.state = STATE_IDLE;
     ctx.entry = 1;
+    airbrake_last_update_ms = 0;
+    airbrake_init();
 }
 
 HAL_StatusTypeDef FSM_update(FlightSensorData *sensorData) {
+    if (sensorData == NULL) return HAL_ERROR;
 
     switch(ctx.state) {
         case STATE_IDLE:
@@ -188,6 +198,12 @@ HAL_StatusTypeDef FSM_update(FlightSensorData *sensorData) {
 
     }
 
+    sensorData->flight_state = (uint8_t)ctx.state;
+
+    (void)airbrake_update(sensorData,
+                          FSM_airbrake_dt_s(),
+                          (uint8_t)(ctx.state == STATE_COAST));
+
     return HAL_OK;
 
 }
@@ -203,3 +219,22 @@ FlightState_t FSM_get_state(void) {
     return ctx.state;
 
 }   
+
+static float FSM_airbrake_dt_s(void)
+{
+    uint32_t now = HAL_GetTick();
+
+    if (airbrake_last_update_ms == 0U) {
+        airbrake_last_update_ms = now;
+        return AIRBRAKE_CONTROL_DT_FALLBACK_S;
+    }
+
+    uint32_t elapsed_ms = now - airbrake_last_update_ms;
+    airbrake_last_update_ms = now;
+
+    if (elapsed_ms == 0U) {
+        return AIRBRAKE_CONTROL_DT_FALLBACK_S;
+    }
+
+    return (float)elapsed_ms / 1000.0f;
+}

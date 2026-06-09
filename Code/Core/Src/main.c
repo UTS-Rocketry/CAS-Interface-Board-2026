@@ -21,6 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "airbrake.h"
+#include "flight_config.h"
 
 /* USER CODE END Includes */
 
@@ -47,6 +49,8 @@ CAN_HandleTypeDef hcan2;
 SPI_HandleTypeDef hspi1;
 SPI_HandleTypeDef hspi2;
 
+TIM_HandleTypeDef htim3;
+
 UART_HandleTypeDef huart5;
 
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
@@ -64,12 +68,27 @@ static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_SPI2_Init(void);
 static void MX_UART5_Init(void);
+static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
+static void Airbrake_PWM_WriteUs(float pwm_us);
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static void Airbrake_PWM_WriteUs(float pwm_us)
+{
+  if (pwm_us < AIRBRAKE_SERVO_CLOSED_US)
+  {
+    pwm_us = AIRBRAKE_SERVO_CLOSED_US;
+  }
+  else if (pwm_us > AIRBRAKE_SERVO_FULL_US)
+  {
+    pwm_us = AIRBRAKE_SERVO_FULL_US;
+  }
+
+  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, (uint32_t)(pwm_us + 0.5f));
+}
 
 /* USER CODE END 0 */
 
@@ -108,7 +127,14 @@ int main(void)
   MX_SPI1_Init();
   MX_SPI2_Init();
   MX_UART5_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
+  Airbrake_PWM_WriteUs(AIRBRAKE_SERVO_CLOSED_US);
+  if (HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  airbrake_set_pwm_writer(Airbrake_PWM_WriteUs);
 
   /* USER CODE END 2 */
 
@@ -254,6 +280,47 @@ static void MX_CAN2_Init(void)
   /* USER CODE BEGIN CAN2_Init 2 */
 
   /* USER CODE END CAN2_Init 2 */
+
+}
+
+/**
+  * @brief TIM3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM3_Init(void)
+{
+
+  /* USER CODE BEGIN TIM3_Init 0 */
+
+  /* USER CODE END TIM3_Init 0 */
+
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM3_Init 1 */
+
+  /* USER CODE END TIM3_Init 1 */
+  htim3.Instance = TIM3;
+  htim3.Init.Prescaler = 72 - 1;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.Period = 20000 - 1;
+  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = (uint32_t)AIRBRAKE_SERVO_CLOSED_US;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM3_Init 2 */
+
+  /* USER CODE END TIM3_Init 2 */
 
 }
 

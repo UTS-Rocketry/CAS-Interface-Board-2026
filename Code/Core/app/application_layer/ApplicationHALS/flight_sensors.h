@@ -7,9 +7,6 @@ extern "C" {
 #endif
 
 #include "main.h"
-#include "BMP388.h"
-#include "lsm6dsox_reg.h"
-#include "h3lis331dl_reg.h"
 #include "stm32f4xx_hal.h"
 #include <stdint.h>
 

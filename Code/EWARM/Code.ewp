@@ -352,6 +352,9 @@
         <option>
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$/../Core/Inc</state>
+          <state>$PROJ_DIR$/../Core/app/application_layer/ControlLoop</state>
+          <state>$PROJ_DIR$/../Core/app/application_layer/FlightStateMachine</state>
+          <state>$PROJ_DIR$/../Core/app/application_layer/ApplicationHALS</state>
           <state>$PROJ_DIR$/../Drivers/STM32F4xx_HAL_Driver/Inc</state>
           <state>$PROJ_DIR$/../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy</state>
           <state>$PROJ_DIR$/../Drivers/CMSIS/Device/ST/STM32F4xx/Include</state>
@@ -1089,6 +1092,12 @@
           <name>$PROJ_DIR$/../Core/Src/stm32f4xx_hal_msp.c</name>
         </file>
       </group>
+      <group>
+        <name>ControlLoop</name>
+        <file>
+          <name>$PROJ_DIR$/../Core/app/application_layer/ControlLoop/airbrake.c</name>
+        </file>
+      </group>
     </group>
   </group>
   <group>
@@ -1139,6 +1148,9 @@
       </file>
       <file>
         <name>$PROJ_DIR$/../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$/../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c</name>
       </file>
       <file>
         <name>$PROJ_DIR$/../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c</name>
