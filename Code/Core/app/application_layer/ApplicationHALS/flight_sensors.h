@@ -18,10 +18,6 @@ typedef struct
     float temperature;
     float velocity;
 
-    /* High-g accelerometer */
-    float x_mg;
-    float y_mg;
-    float z_mg;
 
     /* IMU accelerometer */
     float x_mg_IMU;

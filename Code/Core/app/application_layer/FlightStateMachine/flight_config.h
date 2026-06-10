@@ -22,13 +22,13 @@
 
 /* ── State timeouts ────────────────────────────────── */
 #define BOOST_TIMEOUT_MS                10000     /* 10s max burn */
-#define COAST_TIMEOUT_MS                30000     /* 30s max coast */
-#define DROGUE_TIMEOUT_MS               5000      /* 5s to confirm drogue */
+#define COAST_TIMEOUT_MS                60000     /* 30s max coast */
+#define DROGUE_TIMEOUT_MS               300000     
 #define PARAFOIL_TIMEOUT_MS             300000    /* 5 min max descent */
 
 /* ── Arming ────────────────────────────────────────── */
 #define ARM_AUTO_DELAY_MS               10000     /* temp: auto arm after 10s */
-
+#define MAIN_ALT_CONFIRM_SAMPLES        5
 /* ── Airbrake control ──────────────────────────────── */
 /*
  * Keep this disabled until the rocket-specific values below are filled from

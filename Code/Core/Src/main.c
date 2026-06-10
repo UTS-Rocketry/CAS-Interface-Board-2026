@@ -23,6 +23,8 @@
 /* USER CODE BEGIN Includes */
 #include "airbrake.h"
 #include "flight_config.h"
+#include "flight_sensors.h"
+
 
 /* USER CODE END Includes */
 
@@ -54,6 +56,13 @@ TIM_HandleTypeDef htim3;
 UART_HandleTypeDef huart5;
 
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
+/* sensor data is declared in main and it is used for FSM decisions
+   it also is passed to telemetry.c to pass telemetry to ground station */
+FlightSensorData sensorData;
+
+uint8_t imu_sensor_read = 0;
+uint8_t baro_sensor_read = 0;
+
 
 /* USER CODE BEGIN PV */
 
@@ -129,6 +138,11 @@ int main(void)
   MX_UART5_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
+
+  result = flight_sensors_init();
+
+
+
   Airbrake_PWM_WriteUs(AIRBRAKE_SERVO_CLOSED_US);
   if (HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4) != HAL_OK)
   {
@@ -143,6 +157,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+
 
     /* USER CODE BEGIN 3 */
   }

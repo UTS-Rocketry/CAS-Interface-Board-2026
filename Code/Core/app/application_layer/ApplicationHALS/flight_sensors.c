@@ -26,7 +26,7 @@ static float gy_Offset[3] = {0};
 
 static void BMP388_handleinit (BMP388Handle_TypeDef *bmp);
 static void lsm6dso_handleinit(lsm6dso_HandleTypedef *imu);
-static void h3lis331dl_handleinit(h3lis331dl_HandleTypeDef *accel);
+
 
 
 static void BMP388_handleinit (BMP388Handle_TypeDef *bmp) {
@@ -56,19 +56,6 @@ static void lsm6dso_handleinit(lsm6dso_HandleTypedef *imu) {
 
 }
 
-static void h3lis331dl_handleinit(h3lis331dl_HandleTypeDef *accel) {
-
-  accel->hspi = &hspi1;
-  accel->cs_port = CSAccelerometer_GPIO_Port;
-  accel->cs_pin = CSAccelerometer_Pin;
-
-  if (h3lis331dl_init(accel) != HAL_OK) {
-      printf("ACCEL init FAILED\r\n");
-  } else {
-      printf("ACCEL OK\r\n");
-  }
-
-}
 
 HAL_StatusTypeDef flight_sensors_init(void) {
   
@@ -85,10 +72,6 @@ HAL_StatusTypeDef flight_sensors_init(void) {
     
   } 
   
-  /*ACCEL INIT*/
-  h3lis331dl_handleinit(&accel);
-  HAL_Delay(50);
-  result = h3lis331dl_Calibration(accel_offset);
   
   
   /* Beep OK! */
@@ -135,18 +118,6 @@ HAL_StatusTypeDef flight_sensors_update_baro(FlightSensorData *sensordata) {
 HAL_StatusTypeDef flight_sensors_update_IMU_accel(FlightSensorData *sensordata) {
   
   HAL_StatusTypeDef result;
-  if (sensordata == NULL) return HAL_ERROR;
-  result = h3lis331dl_externalRead(accel_val);
-  if (result != HAL_OK) {
-
-    printf("h3lis331dl Error\r\n");
-    return result;
-
-  } 
-
-  sensordata->x_mg = h3lis331dl_from_fs200_to_mg(accel_val[0]) - accel_offset[0];
-  sensordata->y_mg = h3lis331dl_from_fs200_to_mg(accel_val[1]) - accel_offset[1];
-  sensordata->z_mg = h3lis331dl_from_fs200_to_mg(accel_val[2]) - accel_offset[2];
 
   result = lsm6dso_ExternalReader(xl_Val, gy_Val);
   if (result != HAL_OK) {
