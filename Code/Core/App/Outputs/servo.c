@@ -77,6 +77,14 @@ void servo_init(void)
     TIM3->EGR  |= TIM_EGR_UG;       /* force update: load PSC/ARR/CCR now */
     TIM3->CR1  |= TIM_CR1_ARPE;     /* auto-reload preload */
     TIM3->CR1  |= TIM_CR1_CEN;      /* go */
+
+    #ifdef DEBUG
+        printf("servo_init done\r\n");
+        printf("  APB1 timer clk = %lu Hz\r\n", apb1_timer_clk());
+        printf("  PSC=%lu ARR=%lu\r\n", (unsigned long)TIM3->PSC, (unsigned long)TIM3->ARR);
+        printf("  CCMR2=0x%08lX CCER=0x%08lX\r\n", (unsigned long)TIM3->CCMR2, (unsigned long)TIM3->CCER);
+        printf("  CR1=0x%08lX CCR4=%lu\r\n", (unsigned long)TIM3->CR1, (unsigned long)TIM3->CCR4);
+    #endif
 }
 
 void servo_set_us(servo_id_t id, uint16_t us)

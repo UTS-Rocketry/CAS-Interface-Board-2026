@@ -128,18 +128,11 @@ int main(void)
   //MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
 
-  RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;     // clock TIM3
-  TIM3->PSC = 71;                          // 72MHz/72 = 1MHz tick
-  TIM3->ARR = 19999;                       // 20ms period
-  TIM3->CCMR2 |= (6 << TIM_CCMR2_OC4M_Pos);// CH4 PWM mode 1
-  TIM3->CCMR2 |= TIM_CCMR2_OC4PE;          // preload
-  TIM3->CCER  |= TIM_CCER_CC4E;            // enable CH4 output
-  TIM3->CCR4   = 1500;                      // 1.5ms
-  TIM3->EGR   |= TIM_EGR_UG;               // latch
-  TIM3->CR1   |= TIM_CR1_CEN;              // start
-  while (1) { }   
+
+
 #ifdef SERVO_TEST
-  servo_init();                                    // <-- init FIRST
+  servo_init();
+                                      // <-- init FIRST
   while (1) {
       servo_set_us(SERVO_AIRBRAKE, 1000); HAL_Delay(800);
       servo_set_us(SERVO_AIRBRAKE, 1500); HAL_Delay(800);
