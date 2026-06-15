@@ -1,15 +1,18 @@
 #include "servo.h"
-#include "stm32f4xx.h"
+#include "main.h"
 
 /*
  * Routing (Kestrel):
  *   Airbrakes : PB1 = TIM3_CH4, AF2
  *   Roll/CAS  : PB0 = TIM3_CH3, AF2   (compiled only if SERVO_ENABLE_ROLL)
  *
- * TIM3 is on APB1. On the F405 at full speed the APB1 timer clock is 84 MHz.
- *   PSC = 84-1  -> 1 MHz tick (1 us/count)
+ * TIM3 is on APB1. On this board SYSCLK=72 MHz, APB1=/2 -> PCLK1=36 MHz,
+ * and the APB1 timer doubler gives TIM3 a 72 MHz clock.
+ *   PSC = 72-1 -> 1 MHz tick (1 us/count)
  *   ARR = 20000-1 -> 20 ms period = 50 Hz
  *   CCRx in microseconds == pulse width.
+ * The actual clock is read at runtime (see apb1_timer_clk) so the 1 MHz tick
+ * holds even if the clock tree changes.
  */
 
 #define TICK_HZ         1000000u            /* 1 MHz -> 1 us/tick */
@@ -19,7 +22,7 @@
  * Compute the TIM3 (APB1) timer clock at runtime instead of hardcoding it.
  * Per the F4 clock tree: if the APB1 prescaler is 1, the timer clock equals
  * PCLK1; otherwise the timers see 2 x PCLK1. This avoids a silent timing bug
- * if the project's clock config differs from the assumed 84 MHz.
+ * if the project's clock config differs from the assumed value.
  */
 static uint32_t apb1_timer_clk(void)
 {
@@ -44,24 +47,12 @@ static inline uint16_t clamp_us(uint16_t us)
 
 void servo_init(void)
 {
-    /* --- Clocks --- */
-    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN;
+    /* --- Clock --- *
+     * NOTE: GPIO pins PB0 (roll) and PB1 (airbrakes) are already configured
+     * as TIM3 AF2 by CubeMX's MX_GPIO_Init(), which runs before this. We only
+     * own the timer peripheral here. Do not re-init the GPIO.
+     */
     RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
-
-    /* --- GPIO: PB1 (airbrakes) to AF2 --- */
-    GPIOB->MODER  &= ~GPIO_MODER_MODER1;
-    GPIOB->MODER  |=  (0x2u << GPIO_MODER_MODER1_Pos);   /* alternate function */
-    GPIOB->AFR[0] &= ~(0xFu << (1 * 4));
-    GPIOB->AFR[0] |=  (0x2u << (1 * 4));                 /* AF2 = TIM3 */
-
-#if SERVO_ENABLE_ROLL
-    /* --- GPIO: PB0 (roll) to AF2 --- */
-    GPIOB->MODER  &= ~GPIO_MODER_MODER0;
-    GPIOB->MODER  |=  (0x2u << GPIO_MODER_MODER0_Pos);
-    GPIOB->AFR[0] &= ~(0xFu << (0 * 4));
-    GPIOB->AFR[0] |=  (0x2u << (0 * 4));
-#endif
-
     /* --- Timebase: 1 MHz tick, 20 ms period --- */
     TIM3->PSC = (apb1_timer_clk() / TICK_HZ) - 1u;   /* -> 1 MHz regardless of clock cfg */
     TIM3->ARR = PERIOD_US - 1u;                       /* 19999 */

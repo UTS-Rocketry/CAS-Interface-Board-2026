@@ -45,41 +45,45 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
-    App/AirbrakeController/airbrake.c
     
-    App/AppDrivers/Sensors/BMP388.c
-    App/AppDrivers/Sensors/lsm6dsox_reg.c
-    App/AppDrivers/Sensors/lsm6dsox_hal.c
+    #App/AirbrakeController/airbrake.c
+    
+    Core/App/AppDrivers/Sensors/BMP388.c
+    Core/App/AppDrivers/Sensors/lsm6dsox_reg.c
+    Core/App/AppDrivers/Sensors/lsm6dsox_hal.c
 
-    App/Appdrivers/GPS
-    App/Appdrivers/CAN
+    #Core/App/AppDrivers/GPS/GPS.c
+    #Core/App/AppDrivers/CAN/CAN.c
 
-    App/ApplicationHALS/flight_sensors.c
-    App/ApplicationHALS/kalman.c
+    Core/App/ApplicationHALS/flight_sensors.c
+    Core/App/ApplicationHALS/kalman.c
 
 
-    App/FlightStateMachine/flight_state.c
+    Core/App/FlightStateMachine/flight_state.c
 
-    App/Outputs/servo.c
+    Core/App/Outputs/servo.c
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
-    App/AirbrakeController
-    App/AppDrivers/Sensors
-    App/Appdrivers/GPS
-    App/Appdrivers/CAN
+    #Core/App/AirbrakeController
+    
+    Core/App/AppDrivers/Sensors
+    
+    #Core/App/AppDrivers/GPS
+    #Core/App/AppDrivers/CAN
 
-    App/ApplicationHALS
-    App/FlightStateMachine
-    App/Outputs
+    Core/App/ApplicationHALS
+    Core/App/FlightStateMachine
+    Core/App/Outputs
     
 )
 
 # Add project symbols (macros)
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined symbols
+    SERVO_TEST
 )
 
 # Remove wrong libob.a library dependency when using cpp files

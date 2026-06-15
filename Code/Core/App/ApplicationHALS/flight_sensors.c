@@ -10,7 +10,6 @@ extern SPI_HandleTypeDef hspi1;
 
 static BMP388Handle_TypeDef bmp;
 static lsm6dso_HandleTypedef imu;
-static h3lis331dl_HandleTypeDef accel;
 
 /*BAROMETER VARIABLES*/
 static float ground_pressure;
@@ -160,6 +159,7 @@ HAL_StatusTypeDef flight_sensors_update_baro(FlightSensorData *sensordata) {
 
 HAL_StatusTypeDef flight_sensors_update_IMU_accel(FlightSensorData *sensordata) {
   
+  HAL_StatusTypeDef result;
   result = lsm6dso_ExternalReader(xl_Val, gy_Val);
   if (result != HAL_OK) {
 

@@ -35,7 +35,6 @@ typedef struct
 
     /*Flight State*/
     uint8_t flight_state;
-CSBarometer_GPIO_Port
 } FlightSensorData;
 
 /* Initialization */

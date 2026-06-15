@@ -52,6 +52,9 @@ extern "C" {
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
 
+#define BitClear(reg,x) (reg &= ~(1U << x))
+#define BitSet(reg,x) (reg |= (1U << x))
+
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/

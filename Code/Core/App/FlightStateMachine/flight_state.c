@@ -1,7 +1,5 @@
 #include "flight_state.h"
-#include "pyro.h"
 #include "stm32f4xx_hal.h"
-#include "telemetry.h"
 #include "flight_config.h"
 #include <stdint.h>
 #include <math.h>

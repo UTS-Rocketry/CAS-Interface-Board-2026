@@ -18,6 +18,11 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "servo.h"
+#include "flight_sensors.h"
+#include "flight_state.h"
+#include "kalman.h"
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -77,7 +82,7 @@ static void MX_IWDG_Init(void);
 /* This is a debug printf that exposes uart through the gps header pins*/
 #ifdef DEBUG
 int _write(int file, char *ptr, int len) {
-    HAL_UART_Transmit(&huart4, (uint8_t*)ptr, len, HAL_MAX_DELAY);
+    HAL_UART_Transmit(&huart5, (uint8_t*)ptr, len, HAL_MAX_DELAY);
     return len;
 }
 
@@ -120,9 +125,27 @@ int main(void)
   MX_USB_OTG_FS_PCD_Init();
   MX_SPI1_Init();
   MX_UART5_Init();
-  MX_IWDG_Init();
+  //MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
 
+  RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;     // clock TIM3
+  TIM3->PSC = 71;                          // 72MHz/72 = 1MHz tick
+  TIM3->ARR = 19999;                       // 20ms period
+  TIM3->CCMR2 |= (6 << TIM_CCMR2_OC4M_Pos);// CH4 PWM mode 1
+  TIM3->CCMR2 |= TIM_CCMR2_OC4PE;          // preload
+  TIM3->CCER  |= TIM_CCER_CC4E;            // enable CH4 output
+  TIM3->CCR4   = 1500;                      // 1.5ms
+  TIM3->EGR   |= TIM_EGR_UG;               // latch
+  TIM3->CR1   |= TIM_CR1_CEN;              // start
+  while (1) { }   
+#ifdef SERVO_TEST
+  servo_init();                                    // <-- init FIRST
+  while (1) {
+      servo_set_us(SERVO_AIRBRAKE, 1000); HAL_Delay(800);
+      servo_set_us(SERVO_AIRBRAKE, 1500); HAL_Delay(800);
+      servo_set_us(SERVO_AIRBRAKE, 2000); HAL_Delay(800);
+  }
+#endif
  result = flight_sensors_init();
  
  #ifdef DEBUG
@@ -142,6 +165,7 @@ int main(void)
   }
  #endif
 
+  servo_init();
   kalman_init();
   FSM_init();
   
@@ -159,6 +183,9 @@ int main(void)
     if (__HAL_RCC_GET_FLAG(RCC_FLAG_IWDGRST)) printf("!!! IWDG RESET !!!\r\n");
     __HAL_RCC_CLEAR_RESET_FLAGS();
   #endif
+
+  
+  servo_set_us(SERVO_AIRBRAKE, SERVO_US_MID);
 
   /* USER CODE END 2 */
 
