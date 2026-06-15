@@ -45,11 +45,36 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
+    App/AirbrakeController/airbrake.c
+    
+    App/AppDrivers/Sensors/BMP388.c
+    App/AppDrivers/Sensors/lsm6dsox_reg.c
+    App/AppDrivers/Sensors/lsm6dsox_hal.c
+
+    App/Appdrivers/GPS
+    App/Appdrivers/CAN
+
+    App/ApplicationHALS/flight_sensors.c
+    App/ApplicationHALS/kalman.c
+
+
+    App/FlightStateMachine/flight_state.c
+
+    App/Outputs/servo.c
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
+    App/AirbrakeController
+    App/AppDrivers/Sensors
+    App/Appdrivers/GPS
+    App/Appdrivers/CAN
+
+    App/ApplicationHALS
+    App/FlightStateMachine
+    App/Outputs
+    
 )
 
 # Add project symbols (macros)

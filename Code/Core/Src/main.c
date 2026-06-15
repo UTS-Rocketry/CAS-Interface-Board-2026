@@ -50,6 +50,12 @@ UART_HandleTypeDef huart5;
 
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
+FlightSensorData sensorData;
+
+uint8_t imu_sensor_read = 0;
+uint8_t baro_sensor_read = 0;
+
+
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -68,6 +74,14 @@ static void MX_IWDG_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+/* This is a debug printf that exposes uart through the gps header pins*/
+#ifdef DEBUG
+int _write(int file, char *ptr, int len) {
+    HAL_UART_Transmit(&huart4, (uint8_t*)ptr, len, HAL_MAX_DELAY);
+    return len;
+}
+
+#endif
 
 /* USER CODE END 0 */
 
@@ -79,6 +93,8 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+  /* result is used to check status of any HAL functions and return error codes */
+  HAL_StatusTypeDef result;
 
   /* USER CODE END 1 */
 
@@ -107,12 +123,103 @@ int main(void)
   MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
 
+ result = flight_sensors_init();
+ 
+ #ifdef DEBUG
+  if (result != HAL_OK) {
+    printf("Flight sensors Init Failed\r\n");
+  } else {
+    printf("Flight sensors  Init Successfull\r\n");
+  }
+  
+ #endif
+ #ifdef BARO_NOISE_TEST
+  // after flight_sensors_init(), loop and just print raw altitude
+  while (1) {
+      flight_sensors_update_baro(&sensorData);
+      printf("%.4f\r\n", sensorData.altitude);   // one value per line
+      HAL_Delay(40);   // match your baro rate
+  }
+ #endif
+
+  kalman_init();
+  FSM_init();
+  
+
+  MX_IWDG_Init();
+
+  #ifdef DEBUG
+  uint32_t last = HAL_GetTick();
+  #endif
+
+  uint32_t last_imu   = 0;
+  uint32_t last_baro  = 0;
+ 
+  #ifdef DEBUG
+    if (__HAL_RCC_GET_FLAG(RCC_FLAG_IWDGRST)) printf("!!! IWDG RESET !!!\r\n");
+    __HAL_RCC_CLEAR_RESET_FLAGS();
+  #endif
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
-  {
+  { 
+    /* Watch dog woof woof*/
+    HAL_IWDG_Refresh(&hiwdg);
+    /*This is to get timing loop*/
+    uint32_t now = HAL_GetTick();
+    
+    
+    if (now - last_imu >= 10) {
+      
+      float dt = (now - last_imu) / 1000.0f;
+      last_imu = now;
+      HAL_StatusTypeDef imu_result = flight_sensors_update_IMU_accel(&sensorData);
+      
+      #ifdef DEBUG
+          if (imu_result != HAL_OK) printf("sensor update failed\r\n");
+      #endif
+      
+      (void)imu_result;
+      kalman_predict(sensorData.z_mg_IMU, dt);
+      sensorData.kalman_altitude = kalman_get_altitude();
+      sensorData.kalman_velocity = kalman_get_velocity();
+      imu_sensor_read = 1;
+
+    }
+
+    if (now - last_baro >= 40) {
+      last_baro = now;
+      HAL_StatusTypeDef baro_result = flight_sensors_update_baro(&sensorData);
+      #ifdef DEBUG
+          if (baro_result != HAL_OK) printf("Baro sensor update failed\r\n");
+      #endif
+      (void) baro_result;
+      kalman_update(sensorData.altitude);
+      sensorData.kalman_altitude = kalman_get_altitude();
+      sensorData.kalman_velocity = kalman_get_velocity();
+      baro_sensor_read = 1;
+      #ifdef DEBUG
+        if(FSM_get_state() >= STATE_BOOST) {
+          printf("st=%d alt=%.1f vel=%.1f acc=%.0f\r\n",
+              FSM_get_state(),
+              sensorData.kalman_altitude,
+              sensorData.kalman_velocity,
+              sensorData.z_mg_IMU);
+        }
+      #endif
+    }
+
+    if(imu_sensor_read || baro_sensor_read) {
+      FSM_update(&sensorData, imu_sensor_read, baro_sensor_read);
+      imu_sensor_read = 0; 
+      baro_sensor_read = 0;
+    }
+
+    sensorData.flight_state = FSM_get_state();
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
