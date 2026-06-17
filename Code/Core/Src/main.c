@@ -25,6 +25,8 @@
 #include "flight_sensors.h"
 #include "flight_state.h"
 #include "kalman.h"
+#include <stdlib.h>
+#include "airbrake.h"
 
 /* USER CODE END Includes */
 
@@ -85,85 +87,10 @@ int _write(int file, char *ptr, int len) {
 }
 
 #endif
-
-/* USER CODE END 0 */
-
-/**
-  * @brief  The application entry point.
-  * @retval int
-  */
-int main(void)
-{
-
-  /* USER CODE BEGIN 1 */
-  /* result is used to check status of any HAL functions and return error codes */
-  HAL_StatusTypeDef result;
-
-  /* USER CODE END 1 */
-
-  /* MCU Configuration--------------------------------------------------------*/
-
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
-
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
-  /* Configure the system clock */
-  SystemClock_Config();
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_CAN2_Init();
-  MX_USB_OTG_FS_PCD_Init();
-  MX_SPI1_Init();
-  MX_SPI2_Init();
-  MX_UART5_Init();
-  //MX_IWDG_Init();
-  /* USER CODE BEGIN 2 */
-
-/*
- * ============================================================================
- *  SERVO ENDPOINT CHARACTERIZATION TOOL  (bench use)
- * ============================================================================
- *
- *  Paste this block into main(), in USER CODE BEGIN 2, guarded by a flag.
- *  Build with -DSERVO_CHARACTERIZE (add to target_compile_definitions in
- *  CMakeLists, like SERVO_TEST).
- *
- *  HOW TO USE:
- *    1. Open minicom / screen on UART5 at 115200.
- *    2. The tool prints a prompt. Type a pulse width in microseconds and press
- *       Enter (e.g. "1500"). The servo moves there and the tool echoes it.
- *    3. Walk OUTWARD FROM 1500 in small steps to find your real endpoints:
- *         - step toward stow (lower OR higher us, depending on your linkage)
- *           until brakes are flush and the servo is NOT buzzing -> stowed us
- *         - step toward deploy until brakes are fully out / hit the stop,
- *           servo NOT buzzing -> deployed us
- *    4. BACK OFF ~25-50 us from each hard stop for your final MIN/MAX, so the
- *       servo never stalls in normal operation.
- *
- *  SAFETY: if you hear the servo buzz/whine, it is straining against a stop.
- *  Immediately command back toward neutral or cut power. Your servo has stall
- *  protection but you should not rely on it.
- *
- *  NOTE: this talks to the servo with RAW pulse widths and TEMPORARILY bypasses
- *  the clamp in servo_set_us (which would limit you to SERVO_US_MIN..MAX). That
- *  is the point - you are trying to discover those limits. It writes CCR4
- *  directly. Do not leave this enabled in flight builds.
- * ============================================================================
- */
-
 #ifdef SERVO_CHARACTERIZE
 
 /* Read one line of digits from UART5 into buf (blocking). Returns length. */
-static int uart_read_line(char *buf, int maxlen)
-{
+static int uart_read_line(char *buf, int maxlen) {
     int i = 0;
     while (i < maxlen - 1) {
         uint8_t ch;
@@ -218,69 +145,111 @@ static void servo_characterize(void)
     }
 }
 
-#endif /* SERVO_CHARACTERIZE */
-
-#ifdef SERVO_TEST
-  servo_init();
-                                      // <-- init FIRST
-  while (1) {
-      servo_set_us(SERVO_AIRBRAKE, 1000); HAL_Delay(800);
-      servo_set_us(SERVO_AIRBRAKE, 1500); HAL_Delay(800);
-      servo_set_us(SERVO_AIRBRAKE, 2000); HAL_Delay(800);
-  }
 #endif
- result = flight_sensors_init();
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+
+  /* USER CODE BEGIN 1 */
+  /* result is used to check status of any HAL functions and return error codes */
+  HAL_StatusTypeDef result;
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_CAN2_Init();
+  MX_USB_OTG_FS_PCD_Init();
+  MX_SPI1_Init();
+  MX_SPI2_Init();
+  MX_UART5_Init();
+  //MX_IWDG_Init();
+  /* USER CODE BEGIN 2 */
+
+  /* SERVO_CHARACTERIZE */
+  #ifdef SERVO_CHARACTERIZE
+
+  servo_characterize(); 
+
+  #endif
+
+  result = flight_sensors_init();
+
+  #ifdef DEBUG
+    if (result != HAL_OK) {
+      printf("Flight sensors Init Failed\r\n");
+    } else {
+      printf("Flight sensors  Init Successfull\r\n");
+    }
+  #endif
  
- #ifdef DEBUG
-  if (result != HAL_OK) {
-    printf("Flight sensors Init Failed\r\n");
-  } else {
-    printf("Flight sensors  Init Successfull\r\n");
-  }
-  
- #endif
- #ifdef BARO_NOISE_TEST
+  #ifdef BARO_NOISE_TEST
   // after flight_sensors_init(), loop and just print raw altitude
-  while (1) {
-      flight_sensors_update_baro(&sensorData);
-      printf("%.4f\r\n", sensorData.altitude);   // one value per line
-      HAL_Delay(40);   // match your baro rate
-  }
- #endif
+    while (1) {
+        flight_sensors_update_baro(&sensorData);
+        printf("%.4f\r\n", sensorData.altitude);   // one value per line
+        HAL_Delay(40);   // match your baro rate
+    }
+  #endif
 
   servo_init();
   kalman_init();
   FSM_init();
-  
+  airbrake_init();
+  servo_set_us(SERVO_AIRBRAKE, SERVO_US_MID);
+  HAL_Delay(800);
+  servo_set_us(SERVO_AIRBRAKE, SERVO_US_MAX);
+  HAL_Delay(800);
+  servo_set_us(SERVO_AIRBRAKE, SERVO_US_MIN);
+  HAL_Delay(800);
 
   //MX_IWDG_Init();
 
-  #ifdef DEBUG
-  uint32_t last = HAL_GetTick();
-  #endif
 
   uint32_t last_imu   = 0;
   uint32_t last_baro  = 0;
+  uint32_t last_airbrake = 0;
  
   #ifdef DEBUG
     if (__HAL_RCC_GET_FLAG(RCC_FLAG_IWDGRST)) printf("!!! IWDG RESET !!!\r\n");
     __HAL_RCC_CLEAR_RESET_FLAGS();
   #endif
 
-  
-  servo_set_us(SERVO_AIRBRAKE, SERVO_US_MID);
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  
   while (1)
   { 
     /* Watch dog woof woof*/
-    HAL_IWDG_Refresh(&hiwdg);
-    /*This is to get timing loop*/
-    uint32_t now = HAL_GetTick();
+    //HAL_IWDG_Refresh(&hiwdg);
     
+    /*This is to get timing loop*/
+    
+    uint32_t now = HAL_GetTick();
     
     if (now - last_imu >= 10) {
       
@@ -301,16 +270,20 @@ static void servo_characterize(void)
     }
 
     if (now - last_baro >= 40) {
+      
       last_baro = now;
       HAL_StatusTypeDef baro_result = flight_sensors_update_baro(&sensorData);
       #ifdef DEBUG
           if (baro_result != HAL_OK) printf("Baro sensor update failed\r\n");
       #endif
+      
       (void) baro_result;
+      
       kalman_update(sensorData.altitude);
       sensorData.kalman_altitude = kalman_get_altitude();
       sensorData.kalman_velocity = kalman_get_velocity();
       baro_sensor_read = 1;
+      
       #ifdef DEBUG
         if(FSM_get_state() >= STATE_BOOST) {
           printf("st=%d alt=%.1f vel=%.1f acc=%.0f\r\n",
@@ -320,6 +293,13 @@ static void servo_characterize(void)
               sensorData.z_mg_IMU);
         }
       #endif
+    }
+
+  
+    if(now - last_airbrake >= 100 && FSM_get_state() == STATE_COAST) {
+      float dt = (now - last_airbrake) / 1000.0f;
+      last_airbrake = now; 
+      airbrake_update(&sensorData, dt);
     }
 
     if(imu_sensor_read || baro_sensor_read) {
@@ -471,7 +451,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;

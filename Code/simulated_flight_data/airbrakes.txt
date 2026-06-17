@@ -1,0 +1,1188 @@
+BMP388 OK
+IMU WHO_AM_I = 0x6A (expect 0x6C)
+IMU OK
+Flight sensors  Init Successfull
+servo_init done
+  APB1 timer clk = 72000000 Hz
+  PSC=71 ARR=19999
+  CCMR2=0x00006800 CCER=0x00001000
+  CR1=0x00000081 CCR4=1500
+FSM: IDLE
+FSM: STATE-PAD
+FSM: BOOST
+st=2 alt=0.3 vel=9.2 acc=14065
+st=2 alt=0.7 vel=14.2 acc=13681
+st=2 alt=1.4 vel=19.2 acc=13664
+st=2 alt=2.2 vel=24.1 acc=13655
+st=2 alt=3.3 vel=29.1 acc=13608
+st=2 alt=4.5 vel=34.0 acc=13442
+st=2 alt=5.9 vel=38.8 acc=13271
+st=2 alt=7.6 vel=43.6 acc=13167
+st=2 alt=9.4 vel=48.4 acc=13149
+st=2 alt=11.4 vel=53.2 acc=13130
+st=2 alt=13.6 vel=57.9 acc=13110
+st=2 alt=16.0 vel=62.7 acc=13089
+st=2 alt=18.6 vel=67.4 acc=13081
+st=2 alt=21.3 vel=72.2 acc=13074
+st=2 alt=24.3 vel=76.9 acc=13066
+st=2 alt=27.4 vel=81.6 acc=13057
+st=2 alt=30.8 vel=86.4 acc=13045
+st=2 alt=34.3 vel=91.1 acc=13032
+st=2 alt=38.0 vel=95.8 acc=13014
+st=2 alt=41.9 vel=100.5 acc=12996
+st=2 alt=46.0 vel=105.2 acc=12979
+st=2 alt=50.3 vel=109.9 acc=12963
+st=2 alt=54.7 vel=114.6 acc=12940
+st=2 alt=59.4 vel=119.3 acc=12916
+st=2 alt=64.2 vel=123.9 acc=12892
+st=2 alt=69.2 vel=128.6 acc=12868
+st=2 alt=74.5 vel=133.2 acc=12844
+st=2 alt=79.8 vel=137.9 acc=12811
+st=2 alt=85.4 vel=142.5 acc=12775
+st=2 alt=91.2 vel=147.1 acc=12737
+st=2 alt=97.1 vel=151.7 acc=12697
+st=2 alt=103.3 vel=156.2 acc=12655
+st=2 alt=109.6 vel=160.8 acc=12609
+st=2 alt=116.1 vel=165.4 acc=12560
+st=2 alt=122.8 vel=169.9 acc=12510
+st=2 alt=129.6 vel=174.4 acc=12463
+st=2 alt=136.7 vel=178.9 acc=12420
+st=2 alt=143.9 vel=183.4 acc=12380
+st=2 alt=151.3 vel=187.9 acc=12340
+st=2 alt=158.9 vel=192.3 acc=12299
+st=2 alt=166.7 vel=196.7 acc=12253
+st=2 alt=174.6 vel=201.1 acc=12205
+st=2 alt=182.7 vel=205.5 acc=12152
+st=2 alt=191.0 vel=209.8 acc=12103
+st=2 alt=199.4 vel=214.2 acc=12068
+st=2 alt=208.1 vel=218.5 acc=12036
+st=2 alt=216.9 vel=222.9 acc=12010
+st=2 alt=225.9 vel=227.2 acc=11987
+st=2 alt=235.1 vel=231.5 acc=11961
+st=2 alt=244.4 vel=235.8 acc=11932
+st=2 alt=253.9 vel=240.1 acc=11897
+st=2 alt=263.5 vel=244.3 acc=11858
+st=2 alt=273.3 vel=248.5 acc=11830
+st=2 alt=283.3 vel=252.8 acc=11806
+st=2 alt=293.5 vel=257.0 acc=11787
+st=2 alt=303.8 vel=261.2 acc=11768
+st=2 alt=314.4 vel=265.4 acc=11481
+st=2 alt=325.0 vel=269.4 acc=11038
+st=2 alt=335.9 vel=273.2 acc=10336
+st=2 alt=346.8 vel=276.5 acc=8947
+st=2 alt=357.9 vel=279.3 acc=7553
+st=2 alt=369.1 vel=281.5 acc=6072
+st=2 alt=380.4 vel=283.1 acc=4596
+st=2 alt=391.7 vel=284.2 acc=3124
+st=2 alt=403.1 vel=284.6 acc=1631
+st=2 alt=414.5 vel=284.5 acc=154
+FSM: COAST
+st=3 alt=425.9 vel=283.8 acc=-1058
+st=3 alt=437.2 vel=282.9 acc=-1337
+st=3 alt=448.5 vel=282.0 acc=-1324
+st=3 alt=459.7 vel=281.0 acc=-1314
+st=3 alt=470.9 vel=280.1 acc=-1304
+st=3 alt=482.1 vel=279.2 acc=-1292
+st=3 alt=493.3 vel=278.3 acc=-1277
+st=3 alt=504.4 vel=277.4 acc=-1263
+st=3 alt=515.5 vel=276.6 acc=-1251
+st=3 alt=526.6 vel=275.7 acc=-1242
+st=3 alt=537.6 vel=274.9 acc=-1233
+st=3 alt=548.6 vel=274.0 acc=-1223
+st=3 alt=559.6 vel=273.2 acc=-1209
+st=3 alt=570.5 vel=272.3 acc=-1196
+st=3 alt=581.4 vel=271.5 acc=-1184
+st=3 alt=592.3 vel=270.6 acc=-1176
+st=3 alt=603.1 vel=269.8 acc=-1168
+st=3 alt=613.9 vel=268.9 acc=-1158
+st=3 alt=624.6 vel=268.1 acc=-1146
+st=3 alt=635.3 vel=267.2 acc=-1135
+st=3 alt=646.0 vel=266.4 acc=-1124
+st=3 alt=656.6 vel=265.6 acc=-1116
+st=3 alt=667.2 vel=264.7 acc=-1109
+st=3 alt=677.8 vel=263.9 acc=-1100
+st=3 alt=688.4 vel=263.1 acc=-1090
+st=3 alt=698.9 vel=262.3 acc=-1079
+st=3 alt=709.3 vel=261.5 acc=-1070
+st=3 alt=719.8 vel=260.6 acc=-1062
+st=3 alt=730.2 vel=259.8 acc=-1055
+st=3 alt=740.6 vel=259.0 acc=-1047
+st=3 alt=750.9 vel=258.2 acc=-1038
+st=3 alt=761.2 vel=257.4 acc=-1028
+st=3 alt=771.5 vel=256.6 acc=-1019
+st=3 alt=781.8 vel=255.8 acc=-1011
+st=3 alt=792.0 vel=255.0 acc=-1004
+st=3 alt=802.2 vel=254.3 acc=-997
+st=3 alt=812.3 vel=253.5 acc=-989
+st=3 alt=822.5 vel=252.7 acc=-980
+st=3 alt=832.6 vel=251.9 acc=-972
+st=3 alt=842.6 vel=251.1 acc=-963
+st=3 alt=852.7 vel=250.4 acc=-956
+st=3 alt=862.7 vel=249.6 acc=-950
+4034.66 Predicted app
+st=3 alt=872.6 vel=248.8 acc=-944
+st=3 alt=882.6 vel=248.1 acc=-936
+st=3 alt=892.5 vel=247.3 acc=-928
+4011.33 Predicted app
+st=3 alt=902.4 vel=246.6 acc=-919
+st=3 alt=912.2 vel=245.8 acc=-911
+3988.74 Predicted app
+st=3 alt=922.0 vel=245.1 acc=-905
+st=3 alt=931.8 vel=244.3 acc=-900
+st=3 alt=941.6 vel=243.6 acc=-894
+3966.63 Predicted app
+st=3 alt=951.3 vel=242.8 acc=-886
+st=3 alt=961.0 vel=242.1 acc=-879
+3945.22 Predicted app
+st=3 alt=970.7 vel=241.4 acc=-871
+st=3 alt=980.4 vel=240.6 acc=-864
+st=3 alt=990.0 vel=239.9 acc=-858
+3924.29 Predicted app
+st=3 alt=999.5 vel=239.2 acc=-852
+st=3 alt=1009.1 vel=238.4 acc=-847
+3904.00 Predicted app
+st=3 alt=1018.6 vel=237.7 acc=-841
+st=3 alt=1028.1 vel=237.0 acc=-834
+st=3 alt=1037.6 vel=236.3 acc=-826
+3884.12 Predicted app
+st=3 alt=1047.0 vel=235.6 acc=-819
+st=3 alt=1056.5 vel=234.9 acc=-812
+3864.95 Predicted app
+st=3 alt=1065.8 vel=234.1 acc=-807
+st=3 alt=1075.2 vel=233.4 acc=-803
+st=3 alt=1084.5 vel=232.7 acc=-798
+3846.13 Predicted app
+st=3 alt=1093.8 vel=232.0 acc=-792
+st=3 alt=1103.1 vel=231.3 acc=-785
+3827.82 Predicted app
+st=3 alt=1112.3 vel=230.6 acc=-778
+st=3 alt=1121.5 vel=229.9 acc=-771
+st=3 alt=1130.7 vel=229.2 acc=-766
+3809.99 Predicted app
+st=3 alt=1139.9 vel=228.5 acc=-762
+st=3 alt=1149.0 vel=227.9 acc=-758
+3792.66 Predicted app
+st=3 alt=1158.1 vel=227.2 acc=-752
+st=3 alt=1167.2 vel=226.5 acc=-746
+st=3 alt=1176.3 vel=225.8 acc=-739
+3775.64 Predicted app
+st=3 alt=1185.3 vel=225.1 acc=-732
+st=3 alt=1194.3 vel=224.4 acc=-727
+3759.25 Predicted app
+st=3 alt=1203.2 vel=223.8 acc=-722
+st=3 alt=1212.2 vel=223.1 acc=-718
+st=3 alt=1221.1 vel=222.4 acc=-714
+3743.20 Predicted app
+st=3 alt=1230.0 vel=221.7 acc=-709
+st=3 alt=1238.8 vel=221.1 acc=-704
+3727.55 Predicted app
+st=3 alt=1247.7 vel=220.4 acc=-698
+st=3 alt=1256.5 vel=219.7 acc=-691
+st=3 alt=1265.3 vel=219.1 acc=-686
+3712.36 Predicted app
+st=3 alt=1274.0 vel=218.4 acc=-681
+st=3 alt=1282.7 vel=217.8 acc=-676
+3697.49 Predicted app
+st=3 alt=1291.4 vel=217.1 acc=-672
+st=3 alt=1300.1 vel=216.4 acc=-669
+st=3 alt=1308.8 vel=215.8 acc=-664
+3683.09 Predicted app
+st=3 alt=1317.4 vel=215.1 acc=-660
+st=3 alt=1326.0 vel=214.5 acc=-654
+3669.00 Predicted app
+st=3 alt=1334.6 vel=213.9 acc=-648
+st=3 alt=1343.1 vel=213.2 acc=-643
+st=3 alt=1351.6 vel=212.6 acc=-639
+3655.25 Predicted app
+st=3 alt=1360.1 vel=211.9 acc=-634
+st=3 alt=1368.6 vel=211.3 acc=-630
+3641.81 Predicted app
+st=3 alt=1377.0 vel=210.6 acc=-626
+st=3 alt=1385.4 vel=210.0 acc=-622
+st=3 alt=1393.8 vel=209.4 acc=-617
+3628.76 Predicted app
+st=3 alt=1402.2 vel=208.7 acc=-612
+st=3 alt=1410.5 vel=208.1 acc=-608
+3616.10 Predicted app
+st=3 alt=1418.9 vel=207.5 acc=-603
+st=3 alt=1427.1 vel=206.8 acc=-598
+st=3 alt=1435.4 vel=206.2 acc=-594
+3603.61 Predicted app
+st=3 alt=1443.6 vel=205.6 acc=-591
+st=3 alt=1451.9 vel=205.0 acc=-587
+3591.56 Predicted app
+st=3 alt=1460.0 vel=204.4 acc=-583
+st=3 alt=1468.2 vel=203.7 acc=-579
+st=3 alt=1476.4 vel=203.1 acc=-574
+3579.68 Predicted app
+st=3 alt=1484.5 vel=202.5 acc=-570
+st=3 alt=1492.6 vel=201.9 acc=-566
+3568.30 Predicted app
+st=3 alt=1500.6 vel=201.3 acc=-562
+st=3 alt=1508.7 vel=200.7 acc=-558
+st=3 alt=1516.7 vel=200.0 acc=-555
+3557.10 Predicted app
+st=3 alt=1524.7 vel=199.4 acc=-551
+st=3 alt=1532.6 vel=198.8 acc=-546
+3546.14 Predicted app
+st=3 alt=1540.6 vel=198.2 acc=-542
+st=3 alt=1548.5 vel=197.6 acc=-538
+st=3 alt=1556.4 vel=197.0 acc=-534
+3535.49 Predicted app
+st=3 alt=1564.3 vel=196.4 acc=-531
+st=3 alt=1572.1 vel=195.8 acc=-528
+3525.08 Predicted app
+st=3 alt=1580.0 vel=195.2 acc=-525
+st=3 alt=1587.8 vel=194.6 acc=-521
+st=3 alt=1595.5 vel=194.0 acc=-516
+3514.99 Predicted app
+st=3 alt=1603.3 vel=193.4 acc=-512
+st=3 alt=1611.0 vel=192.8 acc=-508
+3505.16 Predicted app
+st=3 alt=1618.7 vel=192.3 acc=-504
+st=3 alt=1626.4 vel=191.7 acc=-502
+st=3 alt=1634.1 vel=191.1 acc=-499
+3495.55 Predicted app
+st=3 alt=1641.7 vel=190.5 acc=-497
+st=3 alt=1649.3 vel=189.9 acc=-494
+3486.15 Predicted app
+st=3 alt=1656.9 vel=189.3 acc=-490
+st=3 alt=1664.5 vel=188.7 acc=-485
+st=3 alt=1672.0 vel=188.2 acc=-480
+3476.95 Predicted app
+st=3 alt=1679.5 vel=187.6 acc=-476
+st=3 alt=1687.0 vel=187.0 acc=-472
+3468.04 Predicted app
+st=3 alt=1694.5 vel=186.4 acc=-470
+st=3 alt=1701.9 vel=185.8 acc=-469
+st=3 alt=1709.4 vel=185.3 acc=-466
+3459.32 Predicted app
+st=3 alt=1716.8 vel=184.7 acc=-463
+st=3 alt=1724.1 vel=184.1 acc=-460
+3450.89 Predicted app
+st=3 alt=1731.5 vel=183.5 acc=-455
+st=3 alt=1738.8 vel=183.0 acc=-451
+st=3 alt=1746.1 vel=182.4 acc=-447
+3442.51 Predicted app
+st=3 alt=1753.4 vel=181.8 acc=-444
+st=3 alt=1760.7 vel=181.3 acc=-441
+3434.50 Predicted app
+st=3 alt=1767.9 vel=180.7 acc=-439
+st=3 alt=1775.1 vel=180.1 acc=-437
+st=3 alt=1782.3 vel=179.6 acc=-435
+3426.65 Predicted app
+st=3 alt=1789.5 vel=179.0 acc=-432
+st=3 alt=1796.7 vel=178.5 acc=-429
+3419.01 Predicted app
+st=3 alt=1803.8 vel=177.9 acc=-425
+st=3 alt=1810.9 vel=177.3 acc=-420
+st=3 alt=1818.0 vel=176.8 acc=-416
+3411.54 Predicted app
+st=3 alt=1825.1 vel=176.2 acc=-413
+st=3 alt=1832.1 vel=175.7 acc=-410
+3404.33 Predicted app
+st=3 alt=1839.1 vel=175.1 acc=-408
+st=3 alt=1846.1 vel=174.6 acc=-406
+st=3 alt=1853.1 vel=174.0 acc=-404
+3397.22 Predicted app
+st=3 alt=1860.1 vel=173.5 acc=-402
+st=3 alt=1867.0 vel=172.9 acc=-400
+3390.30 Predicted app
+st=3 alt=1873.9 vel=172.4 acc=-397
+st=3 alt=1880.8 vel=171.8 acc=-393
+st=3 alt=1887.6 vel=171.3 acc=-389
+3383.48 Predicted app
+st=3 alt=1894.5 vel=170.7 acc=-385
+st=3 alt=1901.3 vel=170.2 acc=-381
+3376.96 Predicted app
+st=3 alt=1908.1 vel=169.7 acc=-379
+st=3 alt=1914.9 vel=169.1 acc=-377
+st=3 alt=1921.6 vel=168.6 acc=-376
+3370.56 Predicted app
+st=3 alt=1928.4 vel=168.0 acc=-374
+st=3 alt=1935.1 vel=167.5 acc=-373
+3364.35 Predicted app
+st=3 alt=1941.8 vel=167.0 acc=-371
+st=3 alt=1948.5 vel=166.4 acc=-368
+st=3 alt=1955.1 vel=165.9 acc=-364
+3358.14 Predicted app
+st=3 alt=1961.7 vel=165.4 acc=-360
+st=3 alt=1968.3 vel=164.8 acc=-356
+3352.23 Predicted app
+st=3 alt=1974.9 vel=164.3 acc=-353
+st=3 alt=1981.5 vel=163.8 acc=-350
+st=3 alt=1988.0 vel=163.2 acc=-348
+3346.51 Predicted app
+st=3 alt=1994.6 vel=162.7 acc=-347
+st=3 alt=2001.1 vel=162.2 acc=-346
+3340.86 Predicted app
+st=3 alt=2007.5 vel=161.6 acc=-344
+st=3 alt=2014.0 vel=161.1 acc=-342
+st=3 alt=2020.4 vel=160.6 acc=-340
+3335.40 Predicted app
+st=3 alt=2026.8 vel=160.1 acc=-337
+st=3 alt=2033.2 vel=159.5 acc=-334
+3330.03 Predicted app
+st=3 alt=2039.6 vel=159.0 acc=-330
+st=3 alt=2046.0 vel=158.5 acc=-327
+st=3 alt=2052.3 vel=158.0 acc=-324
+3324.83 Predicted app
+st=3 alt=2058.6 vel=157.5 acc=-321
+st=3 alt=2064.9 vel=156.9 acc=-319
+3319.80 Predicted app
+st=3 alt=2071.2 vel=156.4 acc=-318
+st=3 alt=2077.4 vel=155.9 acc=-317
+st=3 alt=2083.6 vel=155.4 acc=-316
+3314.86 Predicted app
+st=3 alt=2089.9 vel=154.9 acc=-315
+st=3 alt=2096.0 vel=154.4 acc=-313
+3310.05 Predicted app
+st=3 alt=2102.2 vel=153.9 acc=-310
+st=3 alt=2108.4 vel=153.3 acc=-306
+st=3 alt=2114.5 vel=152.8 acc=-303
+3305.28 Predicted app
+st=3 alt=2120.6 vel=152.3 acc=-300
+st=3 alt=2126.7 vel=151.8 acc=-297
+3300.79 Predicted app
+st=3 alt=2132.7 vel=151.3 acc=-294
+st=3 alt=2138.8 vel=150.8 acc=-292
+st=3 alt=2144.8 vel=150.3 acc=-291
+3296.36 Predicted app
+st=3 alt=2150.8 vel=149.8 acc=-290
+st=3 alt=2156.8 vel=149.3 acc=-290
+3292.05 Predicted app
+st=3 alt=2162.8 vel=148.8 acc=-288
+st=3 alt=2168.7 vel=148.3 acc=-287
+st=3 alt=2174.6 vel=147.8 acc=-285
+3287.74 Predicted app
+st=3 alt=2180.5 vel=147.3 acc=-282
+st=3 alt=2186.4 vel=146.8 acc=-279
+3283.64 Predicted app
+st=3 alt=2192.3 vel=146.2 acc=-276
+st=3 alt=2198.1 vel=145.8 acc=-273
+st=3 alt=2203.9 vel=145.3 acc=-270
+3279.68 Predicted app
+st=3 alt=2209.7 vel=144.8 acc=-268
+st=3 alt=2215.5 vel=144.3 acc=-267
+3275.83 Predicted app
+st=3 alt=2221.3 vel=143.8 acc=-265
+st=3 alt=2227.0 vel=143.3 acc=-264
+st=3 alt=2232.8 vel=142.8 acc=-262
+3272.00 Predicted app
+st=3 alt=2238.5 vel=142.3 acc=-261
+st=3 alt=2244.1 vel=141.8 acc=-259
+3268.31 Predicted app
+st=3 alt=2249.8 vel=141.3 acc=-258
+st=3 alt=2255.5 vel=140.8 acc=-255
+st=3 alt=2261.1 vel=140.3 acc=-253
+3264.72 Predicted app
+st=3 alt=2266.7 vel=139.8 acc=-250
+st=3 alt=2272.3 vel=139.3 acc=-248
+3261.29 Predicted app
+st=3 alt=2277.8 vel=138.8 acc=-246
+st=3 alt=2283.4 vel=138.3 acc=-244
+st=3 alt=2288.9 vel=137.9 acc=-242
+3257.87 Predicted app
+st=3 alt=2294.4 vel=137.4 acc=-241
+st=3 alt=2299.9 vel=136.9 acc=-240
+3254.58 Predicted app
+st=3 alt=2305.4 vel=136.4 acc=-238
+st=3 alt=2310.8 vel=135.9 acc=-237
+st=3 alt=2316.2 vel=135.4 acc=-235
+3251.32 Predicted app
+st=3 alt=2321.7 vel=134.9 acc=-234
+st=3 alt=2327.0 vel=134.5 acc=-232
+3248.22 Predicted app
+st=3 alt=2332.4 vel=134.0 acc=-230
+st=3 alt=2337.8 vel=133.5 acc=-227
+st=3 alt=2343.1 vel=133.0 acc=-225
+3245.20 Predicted app
+st=3 alt=2348.4 vel=132.5 acc=-223
+st=3 alt=2353.7 vel=132.1 acc=-221
+3242.28 Predicted app
+st=3 alt=2359.0 vel=131.6 acc=-219
+st=3 alt=2364.2 vel=131.1 acc=-218
+st=3 alt=2369.5 vel=130.6 acc=-216
+3239.44 Predicted app
+st=3 alt=2374.7 vel=130.1 acc=-215
+st=3 alt=2379.9 vel=129.7 acc=-214
+3236.68 Predicted app
+st=3 alt=2385.1 vel=129.2 acc=-213
+st=3 alt=2390.2 vel=128.7 acc=-212
+st=3 alt=2395.4 vel=128.2 acc=-210
+3233.93 Predicted app
+st=3 alt=2400.5 vel=127.8 acc=-208
+st=3 alt=2405.6 vel=127.3 acc=-206
+3231.31 Predicted app
+st=3 alt=2410.7 vel=126.8 acc=-204
+st=3 alt=2415.8 vel=126.4 acc=-203
+st=3 alt=2420.8 vel=125.9 acc=-201
+3228.70 Predicted app
+st=3 alt=2425.8 vel=125.4 acc=-199
+st=3 alt=2430.8 vel=124.9 acc=-197
+3226.24 Predicted app
+st=3 alt=2435.8 vel=124.5 acc=-195
+st=3 alt=2440.8 vel=124.0 acc=-194
+st=3 alt=2445.8 vel=123.5 acc=-192
+3223.80 Predicted app
+st=3 alt=2450.7 vel=123.1 acc=-191
+st=3 alt=2455.6 vel=122.6 acc=-190
+3221.51 Predicted app
+st=3 alt=2460.5 vel=122.1 acc=-189
+st=3 alt=2465.4 vel=121.7 acc=-188
+st=3 alt=2470.2 vel=121.2 acc=-186
+3219.21 Predicted app
+st=3 alt=2475.1 vel=120.7 acc=-185
+st=3 alt=2479.9 vel=120.3 acc=-183
+3217.03 Predicted app
+st=3 alt=2484.7 vel=119.8 acc=-181
+st=3 alt=2489.5 vel=119.3 acc=-179
+st=3 alt=2494.3 vel=118.9 acc=-178
+3214.86 Predicted app
+st=3 alt=2499.0 vel=118.4 acc=-177
+st=3 alt=2503.7 vel=118.0 acc=-175
+3212.80 Predicted app
+st=3 alt=2508.5 vel=117.5 acc=-174
+st=3 alt=2513.1 vel=117.0 acc=-172
+st=3 alt=2517.8 vel=116.6 acc=-171
+3210.77 Predicted app
+st=3 alt=2522.5 vel=116.1 acc=-170
+st=3 alt=2527.1 vel=115.7 acc=-168
+3208.79 Predicted app
+st=3 alt=2531.7 vel=115.2 acc=-167
+st=3 alt=2536.3 vel=114.7 acc=-166
+st=3 alt=2540.9 vel=114.3 acc=-165
+3206.90 Predicted app
+st=3 alt=2545.5 vel=113.8 acc=-164
+st=3 alt=2550.0 vel=113.4 acc=-162
+3205.06 Predicted app
+st=3 alt=2554.6 vel=112.9 acc=-161
+st=3 alt=2559.1 vel=112.5 acc=-159
+st=3 alt=2563.6 vel=112.0 acc=-158
+3203.30 Predicted app
+st=3 alt=2568.0 vel=111.6 acc=-156
+st=3 alt=2572.5 vel=111.1 acc=-155
+3201.56 Predicted app
+st=3 alt=2576.9 vel=110.7 acc=-154
+st=3 alt=2581.3 vel=110.2 acc=-152
+st=3 alt=2585.7 vel=109.8 acc=-151
+3199.88 Predicted app
+st=3 alt=2590.1 vel=109.3 acc=-149
+st=3 alt=2594.5 vel=108.9 acc=-148
+3198.28 Predicted app
+st=3 alt=2598.8 vel=108.4 acc=-147
+st=3 alt=2603.2 vel=107.9 acc=-146
+st=3 alt=2607.5 vel=107.5 acc=-145
+3196.66 Predicted app
+st=3 alt=2611.8 vel=107.1 acc=-144
+st=3 alt=2616.1 vel=106.6 acc=-143
+3195.15 Predicted app
+st=3 alt=2620.3 vel=106.2 acc=-142
+st=3 alt=2624.5 vel=105.7 acc=-141
+st=3 alt=2628.8 vel=105.3 acc=-140
+3193.67 Predicted app
+st=3 alt=2633.0 vel=104.8 acc=-138
+st=3 alt=2637.2 vel=104.4 acc=-136
+3192.23 Predicted app
+st=3 alt=2641.3 vel=103.9 acc=-135
+st=3 alt=2645.5 vel=103.5 acc=-134
+st=3 alt=2649.6 vel=103.0 acc=-133
+3190.86 Predicted app
+st=3 alt=2653.7 vel=102.6 acc=-132
+st=3 alt=2657.8 vel=102.1 acc=-131
+3189.49 Predicted app
+st=3 alt=2661.9 vel=101.7 acc=-130
+st=3 alt=2666.0 vel=101.3 acc=-129
+st=3 alt=2670.0 vel=100.8 acc=-128
+3188.17 Predicted app
+st=3 alt=2674.0 vel=100.4 acc=-127
+st=3 alt=2678.0 vel=99.9 acc=-126
+3186.93 Predicted app
+st=3 alt=2682.0 vel=99.5 acc=-124
+st=3 alt=2686.0 vel=99.0 acc=-123
+st=3 alt=2690.0 vel=98.6 acc=-122
+3185.72 Predicted app
+st=3 alt=2693.9 vel=98.2 acc=-120
+st=3 alt=2697.8 vel=97.7 acc=-119
+3184.59 Predicted app
+st=3 alt=2701.7 vel=97.3 acc=-118
+st=3 alt=2705.6 vel=96.9 acc=-117
+st=3 alt=2709.5 vel=96.4 acc=-116
+3183.42 Predicted app
+st=3 alt=2713.3 vel=96.0 acc=-115
+st=3 alt=2717.2 vel=95.5 acc=-114
+3182.36 Predicted app
+st=3 alt=2721.0 vel=95.1 acc=-112
+st=3 alt=2724.8 vel=94.7 acc=-112
+st=3 alt=2728.5 vel=94.2 acc=-111
+3181.31 Predicted app
+st=3 alt=2732.3 vel=93.8 acc=-110
+st=3 alt=2736.1 vel=93.4 acc=-110
+3180.29 Predicted app
+st=3 alt=2739.8 vel=92.9 acc=-109
+st=3 alt=2743.5 vel=92.5 acc=-108
+st=3 alt=2747.2 vel=92.1 acc=-107
+3179.26 Predicted app
+st=3 alt=2750.9 vel=91.6 acc=-106
+st=3 alt=2754.5 vel=91.2 acc=-104
+3178.29 Predicted app
+st=3 alt=2758.2 vel=90.8 acc=-103
+st=3 alt=2761.8 vel=90.3 acc=-102
+st=3 alt=2765.4 vel=89.9 acc=-101
+3177.38 Predicted app
+st=3 alt=2769.0 vel=89.5 acc=-99
+st=3 alt=2772.6 vel=89.0 acc=-98
+3176.52 Predicted app
+st=3 alt=2776.1 vel=88.6 acc=-96
+st=3 alt=2779.6 vel=88.2 acc=-95
+st=3 alt=2783.2 vel=87.7 acc=-94
+3175.70 Predicted app
+st=3 alt=2786.7 vel=87.3 acc=-94
+st=3 alt=2790.2 vel=86.9 acc=-93
+3174.89 Predicted app
+st=3 alt=2793.6 vel=86.5 acc=-93
+st=3 alt=2797.1 vel=86.0 acc=-93
+st=3 alt=2800.5 vel=85.6 acc=-92
+3174.09 Predicted app
+st=3 alt=2803.9 vel=85.2 acc=-92
+st=3 alt=2807.3 vel=84.7 acc=-92
+3173.30 Predicted app
+st=3 alt=2810.7 vel=84.3 acc=-91
+st=3 alt=2814.1 vel=83.9 acc=-90
+st=3 alt=2817.4 vel=83.5 acc=-89
+3172.55 Predicted app
+st=3 alt=2820.8 vel=83.0 acc=-88
+st=3 alt=2824.1 vel=82.6 acc=-87
+3171.85 Predicted app
+st=3 alt=2827.4 vel=82.2 acc=-86
+st=3 alt=2830.7 vel=81.8 acc=-84
+st=3 alt=2833.9 vel=81.3 acc=-83
+3171.14 Predicted app
+st=3 alt=2837.2 vel=80.9 acc=-82
+st=3 alt=2840.4 vel=80.5 acc=-80
+3170.46 Predicted app
+st=3 alt=2843.6 vel=80.1 acc=-79
+st=3 alt=2846.8 vel=79.6 acc=-78
+st=3 alt=2850.0 vel=79.2 acc=-77
+3169.86 Predicted app
+st=3 alt=2853.1 vel=78.8 acc=-76
+st=3 alt=2856.3 vel=78.4 acc=-75
+3169.28 Predicted app
+st=3 alt=2859.4 vel=77.9 acc=-74
+st=3 alt=2862.5 vel=77.5 acc=-74
+st=3 alt=2865.6 vel=77.1 acc=-73
+3168.72 Predicted app
+st=3 alt=2868.7 vel=76.7 acc=-72
+st=3 alt=2871.8 vel=76.3 acc=-72
+3168.17 Predicted app
+st=3 alt=2874.8 vel=75.8 acc=-71
+st=3 alt=2877.8 vel=75.4 acc=-71
+st=3 alt=2880.8 vel=75.0 acc=-71
+3167.63 Predicted app
+st=3 alt=2883.8 vel=74.6 acc=-71
+st=3 alt=2886.8 vel=74.2 acc=-70
+3167.11 Predicted app
+st=3 alt=2889.8 vel=73.7 acc=-69
+st=3 alt=2892.7 vel=73.3 acc=-68
+st=3 alt=2895.6 vel=72.9 acc=-68
+3166.61 Predicted app
+st=3 alt=2898.6 vel=72.5 acc=-67
+st=3 alt=2901.4 vel=72.1 acc=-66
+3166.14 Predicted app
+st=3 alt=2904.3 vel=71.6 acc=-65
+st=3 alt=2907.2 vel=71.2 acc=-64
+st=3 alt=2910.0 vel=70.8 acc=-63
+3165.67 Predicted app
+st=3 alt=2912.8 vel=70.4 acc=-62
+st=3 alt=2915.7 vel=70.0 acc=-61
+3165.25 Predicted app
+st=3 alt=2918.5 vel=69.6 acc=-60
+st=3 alt=2921.2 vel=69.1 acc=-60
+st=3 alt=2924.0 vel=68.7 acc=-59
+3164.85 Predicted app
+st=3 alt=2926.7 vel=68.3 acc=-58
+st=3 alt=2929.5 vel=67.9 acc=-57
+3164.46 Predicted app
+st=3 alt=2932.2 vel=67.5 acc=-56
+st=3 alt=2934.9 vel=67.1 acc=-56
+st=3 alt=2937.5 vel=66.7 acc=-55
+3164.10 Predicted app
+st=3 alt=2940.2 vel=66.2 acc=-54
+st=3 alt=2942.8 vel=65.8 acc=-54
+3163.77 Predicted app
+st=3 alt=2945.5 vel=65.4 acc=-53
+st=3 alt=2948.1 vel=65.0 acc=-52
+st=3 alt=2950.7 vel=64.6 acc=-52
+3163.43 Predicted app
+st=3 alt=2953.3 vel=64.2 acc=-51
+st=3 alt=2955.8 vel=63.8 acc=-51
+3163.11 Predicted app
+st=3 alt=2958.4 vel=63.4 acc=-50
+st=3 alt=2960.9 vel=62.9 acc=-50
+st=3 alt=2963.4 vel=62.5 acc=-49
+3162.80 Predicted app
+st=3 alt=2965.9 vel=62.1 acc=-49
+st=3 alt=2968.4 vel=61.7 acc=-48
+3162.51 Predicted app
+st=3 alt=2970.8 vel=61.3 acc=-48
+st=3 alt=2973.3 vel=60.9 acc=-47
+st=3 alt=2975.7 vel=60.5 acc=-46
+3162.21 Predicted app
+st=3 alt=2978.1 vel=60.1 acc=-46
+st=3 alt=2980.5 vel=59.7 acc=-45
+3161.94 Predicted app
+st=3 alt=2982.9 vel=59.2 acc=-45
+st=3 alt=2985.3 vel=58.8 acc=-44
+st=3 alt=2987.6 vel=58.4 acc=-43
+3161.67 Predicted app
+st=3 alt=2989.9 vel=58.0 acc=-42
+st=3 alt=2992.3 vel=57.6 acc=-42
+3161.44 Predicted app
+st=3 alt=2994.6 vel=57.2 acc=-41
+st=3 alt=2996.8 vel=56.8 acc=-40
+st=3 alt=2999.1 vel=56.4 acc=-40
+3161.22 Predicted app
+st=3 alt=3001.4 vel=56.0 acc=-39
+st=3 alt=3003.6 vel=55.6 acc=-38
+3161.02 Predicted app
+st=3 alt=3005.8 vel=55.2 acc=-38
+st=3 alt=3008.0 vel=54.8 acc=-37
+st=3 alt=3010.2 vel=54.4 acc=-37
+3160.81 Predicted app
+st=3 alt=3012.4 vel=53.9 acc=-36
+st=3 alt=3014.5 vel=53.5 acc=-35
+3160.64 Predicted app
+st=3 alt=3016.6 vel=53.1 acc=-35
+st=3 alt=3018.8 vel=52.7 acc=-34
+st=3 alt=3020.9 vel=52.3 acc=-34
+3160.46 Predicted app
+st=3 alt=3023.0 vel=51.9 acc=-33
+st=3 alt=3025.0 vel=51.5 acc=-33
+3160.30 Predicted app
+st=3 alt=3027.1 vel=51.1 acc=-32
+st=3 alt=3029.1 vel=50.7 acc=-32
+st=3 alt=3031.1 vel=50.3 acc=-31
+3160.15 Predicted app
+st=3 alt=3033.1 vel=49.9 acc=-31
+st=3 alt=3035.1 vel=49.5 acc=-31
+3160.00 Predicted app
+st=3 alt=3037.1 vel=49.1 acc=-30
+st=3 alt=3039.1 vel=48.7 acc=-30
+st=3 alt=3041.0 vel=48.3 acc=-29
+3159.85 Predicted app
+st=3 alt=3042.9 vel=47.9 acc=-29
+st=3 alt=3044.8 vel=47.5 acc=-28
+3159.71 Predicted app
+st=3 alt=3046.7 vel=47.1 acc=-28
+st=3 alt=3048.6 vel=46.7 acc=-28
+st=3 alt=3050.5 vel=46.3 acc=-28
+3159.58 Predicted app
+st=3 alt=3052.3 vel=45.9 acc=-27
+st=3 alt=3054.1 vel=45.5 acc=-26
+3159.45 Predicted app
+st=3 alt=3056.0 vel=45.0 acc=-26
+st=3 alt=3057.7 vel=44.6 acc=-25
+st=3 alt=3059.5 vel=44.2 acc=-25
+3159.35 Predicted app
+st=3 alt=3061.3 vel=43.8 acc=-24
+st=3 alt=3063.0 vel=43.4 acc=-24
+3159.24 Predicted app
+st=3 alt=3064.8 vel=43.0 acc=-23
+st=3 alt=3066.5 vel=42.6 acc=-23
+st=3 alt=3068.2 vel=42.2 acc=-22
+3159.16 Predicted app
+st=3 alt=3069.9 vel=41.8 acc=-22
+st=3 alt=3071.5 vel=41.4 acc=-21
+3159.07 Predicted app
+st=3 alt=3073.2 vel=41.0 acc=-20
+st=3 alt=3074.8 vel=40.6 acc=-20
+st=3 alt=3076.4 vel=40.2 acc=-20
+3159.01 Predicted app
+st=3 alt=3078.1 vel=39.8 acc=-19
+st=3 alt=3079.6 vel=39.4 acc=-19
+3158.94 Predicted app
+st=3 alt=3081.2 vel=39.0 acc=-18
+st=3 alt=3082.8 vel=38.6 acc=-18
+st=3 alt=3084.3 vel=38.2 acc=-17
+3158.87 Predicted app
+st=3 alt=3085.8 vel=37.8 acc=-17
+st=3 alt=3087.3 vel=37.4 acc=-16
+3158.82 Predicted app
+st=3 alt=3088.8 vel=37.0 acc=-16
+st=3 alt=3090.3 vel=36.6 acc=-15
+st=3 alt=3091.8 vel=36.2 acc=-15
+3158.75 Predicted app
+st=3 alt=3093.2 vel=35.9 acc=-15
+st=3 alt=3094.6 vel=35.5 acc=-14
+3158.72 Predicted app
+st=3 alt=3096.0 vel=35.1 acc=-14
+st=3 alt=3097.4 vel=34.7 acc=-14
+st=3 alt=3098.8 vel=34.3 acc=-14
+3158.66 Predicted app
+st=3 alt=3100.2 vel=33.9 acc=-13
+st=3 alt=3101.5 vel=33.5 acc=-13
+3158.63 Predicted app
+st=3 alt=3102.9 vel=33.1 acc=-12
+st=3 alt=3104.2 vel=32.7 acc=-12
+st=3 alt=3105.5 vel=32.3 acc=-12
+3158.60 Predicted app
+st=3 alt=3106.8 vel=31.9 acc=-12
+st=3 alt=3108.0 vel=31.5 acc=-12
+3158.56 Predicted app
+st=3 alt=3109.3 vel=31.1 acc=-11
+st=3 alt=3110.5 vel=30.7 acc=-10
+st=3 alt=3111.8 vel=30.3 acc=-10
+3158.53 Predicted app
+st=3 alt=3113.0 vel=29.9 acc=-10
+st=3 alt=3114.1 vel=29.5 acc=-9
+3158.51 Predicted app
+st=3 alt=3115.3 vel=29.1 acc=-9
+st=3 alt=3116.5 vel=28.7 acc=-9
+st=3 alt=3117.6 vel=28.3 acc=-8
+3158.48 Predicted app
+st=3 alt=3118.7 vel=27.9 acc=-8
+st=3 alt=3119.9 vel=27.5 acc=-8
+3158.47 Predicted app
+st=3 alt=3121.0 vel=27.1 acc=-7
+st=3 alt=3122.0 vel=26.7 acc=-7
+st=3 alt=3123.1 vel=26.3 acc=-7
+3158.46 Predicted app
+st=3 alt=3124.1 vel=25.9 acc=-6
+st=3 alt=3125.2 vel=25.5 acc=-6
+3158.46 Predicted app
+st=3 alt=3126.2 vel=25.2 acc=-6
+st=3 alt=3127.2 vel=24.8 acc=-6
+st=3 alt=3128.2 vel=24.4 acc=-6
+3158.44 Predicted app
+st=3 alt=3129.1 vel=24.0 acc=-5
+st=3 alt=3130.1 vel=23.6 acc=-5
+3158.44 Predicted app
+st=3 alt=3131.0 vel=23.2 acc=-5
+st=3 alt=3132.0 vel=22.8 acc=-5
+st=3 alt=3132.9 vel=22.4 acc=-4
+3158.43 Predicted app
+st=3 alt=3133.8 vel=22.0 acc=-4
+st=3 alt=3134.6 vel=21.6 acc=-4
+3158.42 Predicted app
+st=3 alt=3135.5 vel=21.2 acc=-3
+st=3 alt=3136.3 vel=20.8 acc=-3
+st=3 alt=3137.2 vel=20.4 acc=-3
+3158.42 Predicted app
+st=3 alt=3138.0 vel=20.0 acc=-3
+st=3 alt=3138.8 vel=19.6 acc=-3
+3158.42 Predicted app
+st=3 alt=3139.5 vel=19.2 acc=-2
+st=3 alt=3140.3 vel=18.8 acc=-2
+st=3 alt=3141.1 vel=18.5 acc=-2
+3158.42 Predicted app
+st=3 alt=3141.8 vel=18.1 acc=-2
+st=3 alt=3142.5 vel=17.7 acc=-1
+3158.42 Predicted app
+st=3 alt=3143.2 vel=17.3 acc=-1
+st=3 alt=3143.9 vel=16.9 acc=-1
+st=3 alt=3144.6 vel=16.5 acc=-0
+3158.43 Predicted app
+st=3 alt=3145.2 vel=16.1 acc=-0
+st=3 alt=3145.8 vel=15.7 acc=-0
+3158.43 Predicted app
+st=3 alt=3146.5 vel=15.3 acc=0
+st=3 alt=3147.1 vel=14.9 acc=1
+st=3 alt=3147.7 vel=14.5 acc=1
+3158.44 Predicted app
+st=3 alt=3148.2 vel=14.1 acc=2
+st=3 alt=3148.8 vel=13.8 acc=2
+3158.45 Predicted app
+st=3 alt=3149.3 vel=13.4 acc=2
+st=3 alt=3149.9 vel=13.0 acc=2
+st=3 alt=3150.4 vel=12.6 acc=3
+3158.46 Predicted app
+st=3 alt=3150.9 vel=12.2 acc=3
+st=3 alt=3151.4 vel=11.8 acc=3
+3158.47 Predicted app
+st=3 alt=3151.8 vel=11.4 acc=4
+st=3 alt=3152.3 vel=11.0 acc=4
+st=3 alt=3152.7 vel=10.6 acc=5
+3158.47 Predicted app
+st=3 alt=3153.1 vel=10.2 acc=5
+st=3 alt=3153.5 vel=9.8 acc=5
+3158.48 Predicted app
+st=3 alt=3153.9 vel=9.5 acc=6
+st=3 alt=3154.3 vel=9.1 acc=6
+st=3 alt=3154.7 vel=8.7 acc=7
+3158.49 Predicted app
+st=3 alt=3155.0 vel=8.3 acc=7
+st=3 alt=3155.3 vel=7.9 acc=8
+3158.51 Predicted app
+st=3 alt=3155.6 vel=7.5 acc=8
+st=3 alt=3155.9 vel=7.1 acc=9
+st=3 alt=3156.2 vel=6.7 acc=10
+3158.52 Predicted app
+st=3 alt=3156.5 vel=6.3 acc=11
+st=3 alt=3156.7 vel=6.0 acc=11
+3158.53 Predicted app
+st=3 alt=3157.0 vel=5.6 acc=12
+st=3 alt=3157.2 vel=5.2 acc=14
+st=3 alt=3157.4 vel=4.8 acc=14
+3158.54 Predicted app
+st=3 alt=3157.6 vel=4.4 acc=15
+st=3 alt=3157.7 vel=4.0 acc=15
+3158.55 Predicted app
+st=3 alt=3157.9 vel=3.6 acc=16
+st=3 alt=3158.0 vel=3.2 acc=16
+st=3 alt=3158.1 vel=2.9 acc=17
+3158.56 Predicted app
+st=3 alt=3158.3 vel=2.5 acc=18
+st=3 alt=3158.3 vel=2.1 acc=19
+3158.57 Predicted app
+st=3 alt=3158.4 vel=1.7 acc=20
+st=3 alt=3158.5 vel=1.3 acc=21
+st=3 alt=3158.5 vel=0.9 acc=22
+3158.57 Predicted app
+st=3 alt=3158.6 vel=0.5 acc=23
+st=3 alt=3158.6 vel=0.2 acc=24
+st=3 alt=3158.6 vel=-0.2 acc=26
+st=3 alt=3158.6 vel=-0.6 acc=16
+st=3 alt=3158.5 vel=-1.0 acc=13
+st=3 alt=3158.5 vel=-1.4 acc=18
+st=3 alt=3158.4 vel=-1.8 acc=23
+st=3 alt=3158.3 vel=-2.1 acc=28
+FSM: APOGEE
+FSM: DROGUE
+st=5 alt=3158.3 vel=-2.5 acc=32
+st=5 alt=3158.1 vel=-2.9 acc=37
+st=5 alt=3158.0 vel=-3.3 acc=42
+st=5 alt=3157.9 vel=-3.7 acc=48
+st=5 alt=3157.7 vel=-4.0 acc=53
+st=5 alt=3157.6 vel=-4.4 acc=59
+st=5 alt=3157.4 vel=-4.8 acc=65
+st=5 alt=3157.2 vel=-5.1 acc=72
+st=5 alt=3157.0 vel=-5.5 acc=79
+st=5 alt=3156.8 vel=-5.9 acc=86
+st=5 alt=3156.5 vel=-6.2 acc=94
+st=5 alt=3156.3 vel=-6.6 acc=102
+st=5 alt=3156.0 vel=-6.9 acc=110
+st=5 alt=3155.7 vel=-7.3 acc=118
+st=5 alt=3155.4 vel=-7.6 acc=126
+st=5 alt=3155.1 vel=-8.0 acc=134
+st=5 alt=3154.8 vel=-8.3 acc=143
+st=5 alt=3154.4 vel=-8.6 acc=152
+st=5 alt=3154.1 vel=-9.0 acc=162
+st=5 alt=3153.7 vel=-9.3 acc=172
+st=5 alt=3153.3 vel=-9.6 acc=181
+st=5 alt=3152.9 vel=-9.9 acc=192
+st=5 alt=3152.5 vel=-10.3 acc=202
+st=5 alt=3152.1 vel=-10.6 acc=213
+st=5 alt=3151.7 vel=-10.9 acc=224
+st=5 alt=3151.2 vel=-11.2 acc=235
+st=5 alt=3150.8 vel=-11.5 acc=246
+st=5 alt=3150.3 vel=-11.8 acc=257
+st=5 alt=3149.8 vel=-12.1 acc=268
+st=5 alt=3149.4 vel=-12.4 acc=279
+st=5 alt=3148.9 vel=-12.7 acc=290
+st=5 alt=3148.3 vel=-12.9 acc=301
+st=5 alt=3147.8 vel=-13.2 acc=312
+st=5 alt=3147.3 vel=-13.5 acc=322
+st=5 alt=3146.7 vel=-13.8 acc=334
+st=5 alt=3146.2 vel=-14.0 acc=346
+st=5 alt=3145.6 vel=-14.3 acc=358
+st=5 alt=3145.0 vel=-14.5 acc=369
+st=5 alt=3144.4 vel=-14.8 acc=381
+st=5 alt=3143.8 vel=-15.0 acc=392
+st=5 alt=3143.2 vel=-15.3 acc=403
+st=5 alt=3142.6 vel=-15.5 acc=414
+st=5 alt=3142.0 vel=-15.7 acc=426
+st=5 alt=3141.3 vel=-16.0 acc=436
+st=5 alt=3140.7 vel=-16.2 acc=448
+st=5 alt=3140.0 vel=-16.4 acc=458
+st=5 alt=3139.4 vel=-16.6 acc=469
+st=5 alt=3138.7 vel=-16.9 acc=480
+st=5 alt=3138.0 vel=-17.1 acc=491
+st=5 alt=3137.3 vel=-17.3 acc=501
+st=5 alt=3136.6 vel=-17.5 acc=512
+st=5 alt=3135.9 vel=-17.7 acc=523
+st=5 alt=3135.2 vel=-17.9 acc=534
+st=5 alt=3134.5 vel=-18.1 acc=544
+st=5 alt=3133.7 vel=-18.2 acc=555
+st=5 alt=3133.0 vel=-18.4 acc=565
+st=5 alt=3132.3 vel=-18.6 acc=575
+st=5 alt=3131.5 vel=-18.8 acc=584
+st=5 alt=3130.8 vel=-18.9 acc=594
+st=5 alt=3130.0 vel=-19.1 acc=604
+st=5 alt=3129.2 vel=-19.2 acc=613
+st=5 alt=3128.5 vel=-19.4 acc=622
+st=5 alt=3127.7 vel=-19.6 acc=631
+st=5 alt=3126.9 vel=-19.7 acc=640
+st=5 alt=3126.1 vel=-19.9 acc=649
+st=5 alt=3125.3 vel=-20.0 acc=658
+st=5 alt=3124.5 vel=-20.1 acc=667
+st=5 alt=3123.7 vel=-20.3 acc=675
+st=5 alt=3122.8 vel=-20.4 acc=683
+st=5 alt=3122.0 vel=-20.6 acc=692
+st=5 alt=3121.2 vel=-20.7 acc=700
+st=5 alt=3120.3 vel=-20.8 acc=708
+st=5 alt=3119.5 vel=-20.9 acc=717
+st=5 alt=3118.7 vel=-21.1 acc=725
+st=5 alt=3117.8 vel=-21.2 acc=733
+st=5 alt=3116.9 vel=-21.3 acc=740
+st=5 alt=3116.1 vel=-21.4 acc=747
+st=5 alt=3115.2 vel=-21.5 acc=755
+st=5 alt=3114.3 vel=-21.6 acc=762
+st=5 alt=3113.5 vel=-21.7 acc=770
+st=5 alt=3112.6 vel=-21.8 acc=777
+st=5 alt=3111.7 vel=-21.9 acc=784
+st=5 alt=3110.8 vel=-22.0 acc=792
+st=5 alt=3110.0 vel=-22.1 acc=797
+st=5 alt=3109.1 vel=-22.2 acc=803
+st=5 alt=3108.2 vel=-22.3 acc=809
+st=5 alt=3107.3 vel=-22.4 acc=815
+st=5 alt=3106.3 vel=-22.5 acc=820
+st=5 alt=3105.4 vel=-22.5 acc=826
+st=5 alt=3104.5 vel=-22.6 acc=832
+st=5 alt=3103.6 vel=-22.7 acc=838
+st=5 alt=3102.7 vel=-22.8 acc=844
+st=5 alt=3101.8 vel=-22.8 acc=849
+st=5 alt=3100.9 vel=-22.9 acc=855
+st=5 alt=3100.0 vel=-23.0 acc=859
+st=5 alt=3099.0 vel=-23.0 acc=863
+st=5 alt=3098.1 vel=-23.1 acc=867
+st=5 alt=3097.2 vel=-23.2 acc=872
+st=5 alt=3096.2 vel=-23.2 acc=876
+st=5 alt=3095.3 vel=-23.3 acc=880
+st=5 alt=3094.3 vel=-23.4 acc=884
+st=5 alt=3093.4 vel=-23.4 acc=888
+st=5 alt=3092.5 vel=-23.5 acc=893
+st=5 alt=3091.5 vel=-23.5 acc=897
+st=5 alt=3090.6 vel=-23.6 acc=901
+st=5 alt=3089.6 vel=-23.6 acc=905
+st=5 alt=3088.7 vel=-23.7 acc=908
+st=5 alt=3087.7 vel=-23.7 acc=911
+st=5 alt=3086.8 vel=-23.7 acc=914
+st=5 alt=3085.8 vel=-23.8 acc=917
+st=5 alt=3084.9 vel=-23.8 acc=920
+st=5 alt=3083.9 vel=-23.9 acc=922
+st=5 alt=3082.9 vel=-23.9 acc=925
+st=5 alt=3082.0 vel=-24.0 acc=928
+st=5 alt=3081.0 vel=-24.0 acc=931
+st=5 alt=3080.0 vel=-24.0 acc=934
+st=5 alt=3079.1 vel=-24.1 acc=936
+st=5 alt=3078.1 vel=-24.1 acc=939
+st=5 alt=3077.2 vel=-24.1 acc=942
+st=5 alt=3076.2 vel=-24.2 acc=944
+st=5 alt=3075.2 vel=-24.2 acc=945
+st=5 alt=3074.2 vel=-24.2 acc=947
+st=5 alt=3073.3 vel=-24.3 acc=949
+st=5 alt=3072.3 vel=-24.3 acc=951
+st=5 alt=3071.3 vel=-24.3 acc=952
+st=5 alt=3070.3 vel=-24.4 acc=954
+st=5 alt=3069.4 vel=-24.4 acc=956
+st=5 alt=3068.4 vel=-24.4 acc=958
+st=5 alt=3067.4 vel=-24.4 acc=960
+st=5 alt=3066.4 vel=-24.5 acc=961
+st=5 alt=3065.4 vel=-24.5 acc=963
+st=5 alt=3064.5 vel=-24.5 acc=964
+st=5 alt=3063.5 vel=-24.5 acc=966
+st=5 alt=3062.5 vel=-24.5 acc=967
+st=5 alt=3061.5 vel=-24.6 acc=968
+st=5 alt=3060.5 vel=-24.6 acc=969
+st=5 alt=3059.6 vel=-24.6 acc=970
+st=5 alt=3058.6 vel=-24.6 acc=971
+st=5 alt=3057.6 vel=-24.6 acc=972
+st=5 alt=3056.6 vel=-24.7 acc=973
+st=5 alt=3055.6 vel=-24.7 acc=974
+st=5 alt=3054.6 vel=-24.7 acc=976
+st=5 alt=3053.6 vel=-24.7 acc=977
+st=5 alt=3052.6 vel=-24.7 acc=978
+st=5 alt=3051.7 vel=-24.7 acc=979
+st=5 alt=3050.7 vel=-24.7 acc=979
+st=5 alt=3049.7 vel=-24.8 acc=980
+st=5 alt=3048.7 vel=-24.8 acc=981
+st=5 alt=3047.7 vel=-24.8 acc=982
+st=5 alt=3046.7 vel=-24.8 acc=982
+st=5 alt=3045.7 vel=-24.8 acc=983
+st=5 alt=3044.7 vel=-24.8 acc=984
+st=5 alt=3043.7 vel=-24.8 acc=985
+st=5 alt=3042.7 vel=-24.8 acc=985
+st=5 alt=3041.8 vel=-24.8 acc=986
+st=5 alt=3040.8 vel=-24.9 acc=987
+st=5 alt=3039.8 vel=-24.9 acc=987
+st=5 alt=3038.8 vel=-24.9 acc=988
+st=5 alt=3037.8 vel=-24.9 acc=988
+st=5 alt=3036.8 vel=-24.9 acc=989
+st=5 alt=3035.8 vel=-24.9 acc=989
+st=5 alt=3034.8 vel=-24.9 acc=990
+st=5 alt=3033.8 vel=-24.9 acc=990
+st=5 alt=3032.8 vel=-24.9 acc=991
+st=5 alt=3031.8 vel=-24.9 acc=991
+st=5 alt=3030.8 vel=-24.9 acc=992
+st=5 alt=3029.8 vel=-24.9 acc=992
+st=5 alt=3028.8 vel=-24.9 acc=993
+st=5 alt=3027.8 vel=-25.0 acc=993
+st=5 alt=3026.8 vel=-25.0 acc=994
+st=5 alt=3025.9 vel=-25.0 acc=994
+st=5 alt=3024.9 vel=-25.0 acc=994
+st=5 alt=3023.9 vel=-25.0 acc=995
+st=5 alt=3022.9 vel=-25.0 acc=995
+st=5 alt=3021.9 vel=-25.0 acc=995
+st=5 alt=3020.9 vel=-25.0 acc=996
+st=5 alt=3019.9 vel=-25.0 acc=996
+st=5 alt=3018.9 vel=-25.0 acc=996
+st=5 alt=3017.9 vel=-25.0 acc=997
+st=5 alt=3016.9 vel=-25.0 acc=997
+st=5 alt=3015.9 vel=-25.0 acc=998
+st=5 alt=3014.9 vel=-25.0 acc=998
+st=5 alt=3013.9 vel=-25.0 acc=998
+st=5 alt=3012.9 vel=-25.0 acc=998
+st=5 alt=3011.9 vel=-25.0 acc=998
+st=5 alt=3010.9 vel=-25.0 acc=998
+st=5 alt=3009.9 vel=-25.0 acc=998
+st=5 alt=3008.9 vel=-25.0 acc=998
+st=5 alt=3007.9 vel=-25.0 acc=998
+st=5 alt=3006.9 vel=-25.0 acc=999
+st=5 alt=3005.9 vel=-25.0 acc=999
+st=5 alt=3004.9 vel=-25.0 acc=999
+st=5 alt=3003.9 vel=-25.0 acc=999
+st=5 alt=3002.9 vel=-25.0 acc=999
+st=5 alt=3001.9 vel=-25.0 acc=999
+st=5 alt=3000.9 vel=-25.0 acc=999
+st=5 alt=2999.9 vel=-25.0 acc=999
+st=5 alt=2999.0 vel=-25.0 acc=1000
+st=5 alt=2998.0 vel=-25.0 acc=1000
+st=5 alt=2997.0 vel=-25.0 acc=1000
+st=5 alt=2996.0 vel=-25.0 acc=1000
+st=5 alt=2995.0 vel=-25.0 acc=1000
+st=5 alt=2994.0 vel=-25.0 acc=1000
+st=5 alt=2993.0 vel=-25.0 acc=1000
+st=5 alt=2992.0 vel=-25.0 acc=1000
+st=5 alt=2991.0 vel=-25.0 acc=1000
+st=5 alt=2990.0 vel=-25.0 acc=1000
+st=5 alt=2989.0 vel=-25.0 acc=1001
+st=5 alt=2988.0 vel=-25.0 acc=1001
+st=5 alt=2987.0 vel=-25.0 acc=1001
+st=5 alt=2986.0 vel=-25.0 acc=1001
+st=5 alt=2985.0 vel=-25.0 acc=1001
+st=5 alt=2984.0 vel=-25.0 acc=1001
+st=5 alt=2983.0 vel=-25.0 acc=1001
+st=5 alt=2982.0 vel=-25.0 acc=1001
+st=5 alt=2981.0 vel=-25.0 acc=1001
+st=5 alt=2980.0 vel=-25.0 acc=1001
+st=5 alt=2979.0 vel=-25.0 acc=1002
+st=5 alt=2978.0 vel=-25.0 acc=1002
+st=5 alt=2977.0 vel=-25.0 acc=1002
+st=5 alt=2976.0 vel=-25.0 acc=1002
+st=5 alt=2975.0 vel=-25.0 acc=1002
+st=5 alt=2974.0 vel=-25.0 acc=1002
+st=5 alt=2973.0 vel=-25.0 acc=1002
+st=5 alt=2972.0 vel=-25.0 acc=1002
+st=5 alt=2971.0 vel=-25.0 acc=1002
+st=5 alt=2970.0 vel=-25.0 acc=1002
+st=5 alt=2969.0 vel=-25.0 acc=1002
+st=5 alt=2968.0 vel=-25.0 acc=1002
+st=5 alt=2967.1 vel=-25.0 acc=1002
+st=5 alt=2966.1 vel=-25.0 acc=1002
+st=5 alt=2965.1 vel=-25.0 acc=1002
+st=5 alt=2964.1 vel=-25.0 acc=1002
+st=5 alt=2963.1 vel=-25.0 acc=1002
+st=5 alt=2962.1 vel=-25.0 acc=1002
+st=5 alt=2961.1 vel=-25.0 acc=1002
+st=5 alt=2960.1 vel=-25.0 acc=1002
+st=5 alt=2959.1 vel=-25.0 acc=1002
+st=5 alt=2958.1 vel=-25.0 acc=1002
+st=5 alt=2957.1 vel=-25.0 acc=1002
+st=5 alt=2956.1 vel=-25.0 acc=1002
+st=5 alt=2955.1 vel=-25.0 acc=1002
+st=5 alt=2954.1 vel=-25.0 acc=1002
+st=5 alt=2953.1 vel=-25.0 acc=1003
+st=5 alt=2952.1 vel=-25.0 acc=1003
+st=5 alt=2951.1 vel=-25.0 acc=1003
+st=5 alt=2950.1 vel=-25.0 acc=1003
+st=5 alt=2949.1 vel=-25.0 acc=1003
+st=5 alt=2948.1 vel=-25.0 acc=1003
+st=5 alt=2947.1 vel=-25.0 acc=1003
+st=5 alt=2946.1 vel=-25.0 acc=1003
+st=5 alt=2945.1 vel=-25.0 acc=1003
+st=5 alt=2944.1 vel=-25.0 acc=1003
+st=5 alt=2943.1 vel=-25.0 acc=1003
+st=5 alt=2942.1 vel=-25.0 acc=1003
+st=5 alt=2941.1 vel=-25.0 acc=1003
+st=5 alt=2940.2 vel=-25.0 acc=1003
+st=5 alt=2939.2 vel=-25.0 acc=1003
+st=5 alt=2938.2 vel=-25.0 acc=1003
+st=5 alt=2937.2 vel=-25.0 acc=1003
+st=5 alt=2936.2 vel=-24.9 acc=1003
+st=5 alt=2935.2 vel=-24.9 acc=1003
+st=5 alt=2934.2 vel=-24.9 acc=1003
+st=5 alt=2933.2 vel=-24.9 acc=1003
+st=5 alt=2932.2 vel=-24.9 acc=1003
+st=5 alt=2931.2 vel=-24.9 acc=1003
+st=5 alt=2930.2 vel=-24.9 acc=1003
+st=5 alt=2929.2 vel=-24.9 acc=1003
+st=5 alt=2928.2 vel=-24.9 acc=1003
+st=5 alt=2927.2 vel=-24.9 acc=1003
+st=5 alt=2926.2 vel=-24.9 acc=1003
+st=5 alt=2925.2 vel=-24.9 acc=1003
+st=5 alt=2924.2 vel=-24.9 acc=1003
+st=5 alt=2923.2 vel=-24.9 acc=1003
+st=5 alt=2922.2 vel=-24.9 acc=1003
+st=5 alt=2921.2 vel=-24.9 acc=1003
+st=5 alt=2920.2 vel=-24.9 acc=1003
+st=5 alt=2919.3 vel=-24.9 acc=1003
+st=5 alt=2918.3 vel=-24.9 acc=1003
+st=5 alt=2917.3 vel=-24.9 acc=1003
+st=5 alt=2916.3 vel=-24.9 acc=1003
+st=5 alt=2915.3 vel=-24.9 acc=1003
+st=5 alt=2914.3 vel=-24.9 acc=1003
+st=5 alt=2913.3 vel=-24.9 acc=1003
+st=5 alt=2912.3 vel=-24.9 acc=1003
+st=5 alt=2911.3 vel=-24.9 acc=1003
+st=5 alt=2910.3 vel=-24.9 acc=1003
+st=5 alt=2909.3 vel=-24.9 acc=1003
+st=5 alt=2908.3 vel=-24.9 acc=1003
+st=5 alt=2907.3 vel=-24.9 acc=1003
+st=5 alt=2906.3 vel=-24.9 acc=1003
+st=5 alt=2905.3 vel=-24.9 acc=1003
+st=5 alt=2904.3 vel=-24.9 acc=1003
+st=5 alt=2903.3 vel=-24.9 acc=1003
+st=5 alt=2902.4 vel=-24.9 acc=1003
+st=5 alt=2901.4 vel=-24.9 acc=1003
+st=5 alt=2900.4 vel=-24.9 acc=1003
+st=5 alt=2899.4 vel=-24.9 acc=1003
+st=5 alt=2898.4 vel=-24.9 acc=1003
+st=5 alt=2897.4 vel=-24.9 acc=1003
+st=5 alt=2896.4 vel=-24.9 acc=1003
+st=5 alt=2895.4 vel=-24.9 acc=1003
+st=5 alt=2894.4 vel=-24.9 acc=1003
+st=5 alt=2893.4 vel=-24.9 acc=1003
+st=5 alt=2892.4 vel=-24.9 acc=1003
+st=5 alt=2891.4 vel=-24.9 acc=1003
+st=5 alt=2890.4 vel=-24.9 acc=1003
+st=5 alt=2889.4 vel=-24.9 acc=1003
+st=5 alt=2888.4 vel=-24.9 acc=1003
+st=5 alt=2887.5 vel=-24.9 acc=1003
+st=5 alt=2886.5 vel=-24.9 acc=1003
+st=5 alt=2885.5 vel=-24.9 acc=1003
+st=5 alt=2884.5 vel=-24.9 acc=1003
+st=5 alt=2883.5 vel=-24.9 acc=1003
+st=5 alt=2882.5 vel=-24.9 acc=1003
+st=5 alt=2881.5 vel=-24.9 acc=1003
+st=5 alt=2880.5 vel=-24.9 acc=1003
+st=5 alt=2879.5 vel=-24.9 acc=1003
+st=5 alt=2878.5 vel=-24.8 acc=1003
+st=5 alt=2877.5 vel=-24.8 acc=1003
+st=5 alt=2876.5 vel=-24.8 acc=1003
+st=5 alt=2875.5 vel=-24.8 acc=1003
+st=5 alt=2874.5 vel=-24.8 acc=1003
+st=5 alt=2873.6 vel=-24.8 acc=1003
+st=5 alt=2872.6 vel=-24.8 acc=1003
+st=5 alt=2871.6 vel=-24.8 acc=1003
+st=5 alt=2870.6 vel=-24.8 acc=1003
+st=5 alt=2869.6 vel=-24.8 acc=1003
+st=5 alt=2868.6 vel=-24.8 acc=1003
+st=5 alt=2867.6 vel=-24.8 acc=1003
+st=5 alt=2866.6 vel=-24.8 acc=1003
+st=5 alt=2865.6 vel=-24.8 acc=1003
+st=5 alt=2864.6 vel=-24.8 acc=1003
+st=5 alt=2863.6 vel=-24.8 acc=1003
+st=5 alt=2862.6 vel=-24.8 acc=1003
+st=5 alt=2861.7 vel=-24.8 acc=1003
+st=5 alt=2860.7 vel=-24.8 acc=1003
+st=5 alt=2859.7 vel=-24.8 acc=1003

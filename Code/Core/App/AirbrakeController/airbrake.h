@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include "flight_sensors.h"
 
 /*
  * ============================================================================
@@ -48,7 +49,7 @@ void airbrake_init(void);
  * servo, the FSM, or any global - it just computes a number. The caller
  * decides whether to apply it. That makes it trivial to test and reason about.
  */
-float airbrake_update(float altitude_m, float velocity_ms, float dt_s);
+float airbrake_update(const FlightSensorData *data, float dt);
 
 /* For telemetry / debugging: expose what the controller last computed. */
 float airbrake_get_predicted_apogee(void);   /* metres AGL */

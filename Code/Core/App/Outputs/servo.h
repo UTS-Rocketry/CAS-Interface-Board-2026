@@ -24,8 +24,8 @@
 
 #define SERVO_ENABLE_ROLL   0      /* flip to 1 when CAS roll actuator is fitted */
 
-#define SERVO_US_MIN   1000u       /* fully stowed  / one extreme */
-#define SERVO_US_MAX   2000u       /* fully deployed / other extreme */
+#define SERVO_US_MIN   1400u       /* fully stowed  / one extreme */
+#define SERVO_US_MAX   2050u       /* fully deployed / other extreme */
 #define SERVO_US_MID   1500u       /* center */
 
 /* Logical channel identifiers (decoupled from the hardware TIM channel). */

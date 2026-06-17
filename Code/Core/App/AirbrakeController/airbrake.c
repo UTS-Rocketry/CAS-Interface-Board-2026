@@ -1,36 +1,12 @@
 #include "airbrake.h"
 #include "airbrake_config.h"
+#include "flight_sensors.h"
+#include "servo.h"
+#include "flight_state.h"
 
-/*
- * ============================================================================
- *  AIRBRAKE CONTROLLER - implementation
- * ============================================================================
- *
- *  THE CONTROL PROBLEM IN ONE PARAGRAPH
- *  ------------------------------------
- *  We want to hit a target apogee. We cannot command apogee directly - we can
- *  only add drag, right now, by deploying brakes. So each cycle we (1) predict
- *  the apogee we are currently heading for, (2) compare it to the target to get
- *  an error, (3) deploy brakes in proportion to that error. Deploying brakes
- *  adds drag, bleeds energy, and lowers the apogee we'll actually reach. It is
- *  a feedback loop: predict -> compare -> actuate -> (physics responds) ->
- *  predict again. This is the essence of closed-loop control.
- *
- *  WHY "FEEDBACK" AND NOT "OPEN LOOP"
- *  ----------------------------------
- *  An open-loop approach would be "deploy brakes on a fixed schedule." That
- *  fails because every flight differs - motor impulse varies, winds vary, mass
- *  varies. Feedback measures the actual state and corrects, so it is robust to
- *  those variations. The price is you must measure state well (your Kalman
- *  filter) and predict sensibly (here, the energy method).
- * ============================================================================
- */
-
-/* ---- internal state (remembered between calls) ---------------------------- */
 static float s_last_fraction;       /* previous deploy command, for slew limiting */
 static float s_predicted_apogee;    /* last predicted apogee, for telemetry */
 
-/* ---- small helpers -------------------------------------------------------- */
 
 /* Force x into [lo, hi]. Saturation is fundamental to real actuators: a servo
  * cannot deploy to 1.3 or -0.2, so every controller MUST clamp its output. */
@@ -63,6 +39,14 @@ static float predict_apogee_energy(float altitude_m, float velocity_ms) {
     return altitude_m + (velocity_ms * velocity_ms) / (2.0f * AIRBRAKE_G);
 }
 
+static bool airbrakes_allowed(const FlightSensorData *d) {
+    if (FSM_get_state() != STATE_COAST)                    return false;
+    if (d->kalman_velocity <= 0.0f)                        return false;
+    if (d->kalman_velocity > AIRBRAKE_V_BRAKE_MAX_MS)      return false;
+    if (d->kalman_altitude < AIRBRAKE_ALT_BRAKE_MIN_M)     return false; 
+    return true;
+}
+
 /* ---- public API ----------------------------------------------------------- */
 
 void airbrake_init(void) {
@@ -70,7 +54,10 @@ void airbrake_init(void) {
     s_predicted_apogee = 0.0f;
 }
 
-float airbrake_update(float altitude_m, float velocity_ms, float dt_s) {
+float airbrake_update(const FlightSensorData *data, float dt) {
+
+    float altitude_m = data->kalman_altitude;
+    float velocity_ms = data->kalman_velocity;
     /*
      * STEP 0 - GATING / SAFETY INTERLOCKS
      * -----------------------------------
@@ -90,16 +77,10 @@ float airbrake_update(float altitude_m, float velocity_ms, float dt_s) {
      * the wrong time. Layered safety is standard practice for actuators that
      * can affect a vehicle's trajectory.
      */
-    if (velocity_ms < AIRBRAKE_MIN_COAST_SPEED_MS) {
-        /* not ascending fast enough (or descending): retract and reset target */
-        s_predicted_apogee = altitude_m;
-        /* slew toward stowed rather than snapping, for mechanical kindness */
-        float target = AIRBRAKE_DEPLOY_MIN;
-        float delta  = clampf(target - s_last_fraction,
-                              -AIRBRAKE_MAX_SLEW_PER_UPDATE,
-                               AIRBRAKE_MAX_SLEW_PER_UPDATE);
-        s_last_fraction = clampf(s_last_fraction + delta,
-                                 AIRBRAKE_DEPLOY_MIN, AIRBRAKE_DEPLOY_MAX);
+
+    if (!airbrakes_allowed(data)) {
+        servo_set_us(SERVO_AIRBRAKE, SERVO_US_MIN);   // stow
+        s_last_fraction = 0.0f;
         return s_last_fraction;
     }
 
@@ -109,6 +90,7 @@ float airbrake_update(float altitude_m, float velocity_ms, float dt_s) {
      * Where are we heading right now?
      */
     s_predicted_apogee = predict_apogee_energy(altitude_m, velocity_ms);
+    printf("Predicted Apogee: %.2f \n\r", s_predicted_apogee);
 
     /*
      * STEP 2 - ERROR
@@ -167,12 +149,13 @@ float airbrake_update(float altitude_m, float velocity_ms, float dt_s) {
      * per-update; here we keep it per-update for simplicity. To make it
      * time-based: max_step = SLEW_RATE_PER_SEC * dt_s.)
      */
-    (void)dt_s;  /* unused for now; kept in the signature for time-based slew later */
-    float step = clampf(commanded - s_last_fraction,
-                        -AIRBRAKE_MAX_SLEW_PER_UPDATE,
-                         AIRBRAKE_MAX_SLEW_PER_UPDATE);
+    float max_step = AIRBRAKE_SLEW_RATE_PER_SEC * dt;   // <-- dt used here
+    
+    float step = clampf(commanded - s_last_fraction, -max_step, max_step);
     s_last_fraction = clampf(s_last_fraction + step,
                              AIRBRAKE_DEPLOY_MIN, AIRBRAKE_DEPLOY_MAX);
+
+    servo_set_fraction(SERVO_AIRBRAKE, s_last_fraction);
 
     return s_last_fraction;
 }
@@ -183,3 +166,4 @@ float airbrake_get_predicted_apogee(void) {
 float airbrake_get_last_fraction(void) { 
     return s_last_fraction; 
 }
+

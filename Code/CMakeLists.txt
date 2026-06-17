@@ -46,7 +46,7 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
     
-    App/AirbrakeController/airbrake.c
+    Core/App/AirbrakeController/airbrake.c
     
     Core/App/AppDrivers/Sensors/BMP388.c
     Core/App/AppDrivers/Sensors/lsm6dsox_reg.c
@@ -85,6 +85,8 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined symbols
     # SERVO_TEST
+    # SERVO_CHARACTERIZE
+    HIL_SIM
 )
 
 # Remove wrong libob.a library dependency when using cpp files
@@ -96,3 +98,5 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 
     # Add user defined libraries
 )
+
+target_link_options(${PROJECT_NAME} PRIVATE -u _printf_float)

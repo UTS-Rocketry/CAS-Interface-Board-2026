@@ -43,6 +43,7 @@ HAL_StatusTypeDef lsm6dso_init(lsm6dso_HandleTypedef *l6)
   
   /* Check device ID */
   resultINT = lsm6dsox_device_id_get(&dev_ctx, &whoamI);
+  printf("IMU WHO_AM_I = 0x%02X (expect 0x6C)\r\n", whoamI);
 
   if (resultINT != 0) {
     return HAL_ERROR;

@@ -26,6 +26,10 @@ HAL_StatusTypeDef FSM_update(FlightSensorData *sensorData, uint8_t imu_read, uin
                     printf("FSM: IDLE\r\n");
                 #endif
             }
+
+            if (HAL_GetTick() - ctx.state_entry_time >= 10000) {
+                FSM_transition(STATE_PAD);
+            }
             
             break;
     /*********************************************************************** */
@@ -109,6 +113,7 @@ HAL_StatusTypeDef FSM_update(FlightSensorData *sensorData, uint8_t imu_read, uin
             /*Apogee detected*/
 
             if(baro_read) {
+
                 if(sensorData->kalman_velocity < APOGEE_VELOCITY_THRESHOLD){
                 ctx.apogee_count++;
                 }

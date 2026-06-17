@@ -24,8 +24,7 @@
  * PCLK1; otherwise the timers see 2 x PCLK1. This avoids a silent timing bug
  * if the project's clock config differs from the assumed value.
  */
-static uint32_t apb1_timer_clk(void)
-{
+static uint32_t apb1_timer_clk(void) {
     RCC_ClkInitTypeDef clk;
     uint32_t flash_latency;
     HAL_RCC_GetClockConfig(&clk, &flash_latency);
@@ -38,15 +37,13 @@ static uint32_t apb1_timer_clk(void)
     return pclk1 * 2u;
 }
 
-static inline uint16_t clamp_us(uint16_t us)
-{
+static inline uint16_t clamp_us(uint16_t us) {
     if (us < SERVO_US_MIN) return SERVO_US_MIN;
     if (us > SERVO_US_MAX) return SERVO_US_MAX;
     return us;
 }
 
-void servo_init(void)
-{
+void servo_init(void) {
     /* --- Clock --- *
      * NOTE: GPIO pins PB0 (roll) and PB1 (airbrakes) are already configured
      * as TIM3 AF2 by CubeMX's MX_GPIO_Init(), which runs before this. We only
@@ -87,8 +84,7 @@ void servo_init(void)
     #endif
 }
 
-void servo_set_us(servo_id_t id, uint16_t us)
-{
+void servo_set_us(servo_id_t id, uint16_t us) {
     us = clamp_us(us);
     switch (id) {
         case SERVO_AIRBRAKE: TIM3->CCR4 = us; break;
@@ -99,16 +95,14 @@ void servo_set_us(servo_id_t id, uint16_t us)
     }
 }
 
-void servo_set_deg(servo_id_t id, uint8_t deg)
-{
+void servo_set_deg(servo_id_t id, uint8_t deg) {
     if (deg > 180u) deg = 180u;
     uint16_t us = (uint16_t)(SERVO_US_MIN +
                   ((uint32_t)deg * (SERVO_US_MAX - SERVO_US_MIN)) / 180u);
     servo_set_us(id, us);
 }
 
-void servo_set_fraction(servo_id_t id, float frac)
-{
+void servo_set_fraction(servo_id_t id, float frac) {
     if (frac < 0.0f) frac = 0.0f;
     if (frac > 1.0f) frac = 1.0f;
     uint16_t us = (uint16_t)(SERVO_US_MIN +
