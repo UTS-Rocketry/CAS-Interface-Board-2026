@@ -127,7 +127,98 @@ int main(void)
   //MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
 
+/*
+ * ============================================================================
+ *  SERVO ENDPOINT CHARACTERIZATION TOOL  (bench use)
+ * ============================================================================
+ *
+ *  Paste this block into main(), in USER CODE BEGIN 2, guarded by a flag.
+ *  Build with -DSERVO_CHARACTERIZE (add to target_compile_definitions in
+ *  CMakeLists, like SERVO_TEST).
+ *
+ *  HOW TO USE:
+ *    1. Open minicom / screen on UART5 at 115200.
+ *    2. The tool prints a prompt. Type a pulse width in microseconds and press
+ *       Enter (e.g. "1500"). The servo moves there and the tool echoes it.
+ *    3. Walk OUTWARD FROM 1500 in small steps to find your real endpoints:
+ *         - step toward stow (lower OR higher us, depending on your linkage)
+ *           until brakes are flush and the servo is NOT buzzing -> stowed us
+ *         - step toward deploy until brakes are fully out / hit the stop,
+ *           servo NOT buzzing -> deployed us
+ *    4. BACK OFF ~25-50 us from each hard stop for your final MIN/MAX, so the
+ *       servo never stalls in normal operation.
+ *
+ *  SAFETY: if you hear the servo buzz/whine, it is straining against a stop.
+ *  Immediately command back toward neutral or cut power. Your servo has stall
+ *  protection but you should not rely on it.
+ *
+ *  NOTE: this talks to the servo with RAW pulse widths and TEMPORARILY bypasses
+ *  the clamp in servo_set_us (which would limit you to SERVO_US_MIN..MAX). That
+ *  is the point - you are trying to discover those limits. It writes CCR4
+ *  directly. Do not leave this enabled in flight builds.
+ * ============================================================================
+ */
 
+#ifdef SERVO_CHARACTERIZE
+
+/* Read one line of digits from UART5 into buf (blocking). Returns length. */
+static int uart_read_line(char *buf, int maxlen)
+{
+    int i = 0;
+    while (i < maxlen - 1) {
+        uint8_t ch;
+        /* blocking single-byte read */
+        if (HAL_UART_Receive(&huart5, &ch, 1, HAL_MAX_DELAY) != HAL_OK) {
+            continue;
+        }
+        if (ch == '\r' || ch == '\n') {
+            if (i > 0) break;   /* end of line (ignore leading newlines) */
+            else continue;
+        }
+        if (ch >= '0' && ch <= '9') {
+            buf[i++] = (char)ch;
+            HAL_UART_Transmit(&huart5, &ch, 1, HAL_MAX_DELAY); /* echo */
+        }
+    }
+    buf[i] = '\0';
+    return i;
+}
+
+static void servo_characterize(void)
+{
+    /* Make sure TIM3 is running and CH4 output is live. */
+    servo_init();
+
+    printf("\r\n=== SERVO CHARACTERIZE ===\r\n");
+    printf("Type a pulse width in us (500-2500) and press Enter.\r\n");
+    printf("Start at 1500 and step outward. Watch for buzz at the stops.\r\n");
+
+    char line[8];
+    while (1) {
+        printf("\r\nus> ");
+        int n = uart_read_line(line, sizeof(line));
+        if (n == 0) continue;
+
+        int us = atoi(line);
+
+        /* hard safety bound to the servo's absolute electrical range */
+        if (us < 500)  us = 500;
+        if (us > 2500) us = 2500;
+
+        /* write CCR4 directly to bypass the MIN/MAX clamp during discovery */
+        TIM3->CCR4 = (uint16_t)us;
+
+        printf("\r\n  -> commanded %d us", us);
+
+        /* If/when the max limit switch is wired (PB4), report its state.
+         * With a pull-down, HIGH = switch triggered = brakes at full deploy. */
+        GPIO_PinState sw = HAL_GPIO_ReadPin(LImitSwitchAirbrakes_GPIO_Port,
+                                            LImitSwitchAirbrakes_Pin);
+        printf("   [maxLimitSwitch=%s]\r\n", (sw == GPIO_PIN_SET) ? "TRIGGERED" : "open");
+    }
+}
+
+#endif /* SERVO_CHARACTERIZE */
 
 #ifdef SERVO_TEST
   servo_init();
