@@ -1,0 +1,56 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "8d4acb02-486f-4a82-8cb3-6751e95c7d3a")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 138.43 101.6)
+		(size 25.4 15.24)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "87caa3c0-a72b-4080-959a-da2917e28214")
+		(property "Sheetname" "Cell Balancer"
+			(at 138.43 100.8884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "CellBalancer.kicad_sch"
+			(at 138.43 117.4246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Rocketry-Battery-Board"
+				(path "/8d4acb02-486f-4a82-8cb3-6751e95c7d3a"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

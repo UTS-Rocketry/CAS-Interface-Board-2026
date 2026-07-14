@@ -1,0 +1,64 @@
+Reference,Val,Package,Mid X,Mid Y,Rotation,Layer
+BootSwitch1,SAMZO G4R0015010,SAMZO G4R0015010,115.15,-59.25,0,top
+C1,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,126.95,-80.7,-90,top
+C3,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,153.1,-47,180,top
+C4,1u,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,119.4,-99.2,90,top
+C5,4.7u,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,130.1,-96.9,180,top
+C7,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,120.45,-52.35,90,top
+C8,2.2u,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,141,-70.3,180,top
+C9,2.2u,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,153,-77.05,-90,top
+C10,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,143.5,-74.05,-90,top
+C11,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,142,-64.3,90,top
+C12,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,157.4,-61.8,0,top
+C13,1u,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,134.15,-58.6,-90,top
+C14,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,140.15,-58.6,-90,top
+C15,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,155.5,-75.05,-90,top
+C16,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,157.8,-65.1,-90,top
+C17,1u,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,142.4,-58.6,90,top
+C18,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,144.65,-58.6,90,top
+C19,18p,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,153.6775,-58.48125,0,top
+C20,18p,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,148.4875,-55.32125,90,top
+C22,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,130.955,-33.27,90,top
+C24,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,137.1,-65.4,90,top
+C25,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,133.5,-63.9,180,top
+C30,4.7u,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,141.25,-74.05,-90,top
+C31,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,137.2,-75.8,-90,top
+C32,100nf,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,134,-75.6,180,top
+CAN_IN1,CAN,MOLEX_26013114,145.1,-44.1,180,top
+CAN_OUT1,CAN,MOLEX_26013114,136.6,-44.1,180,top
+CN1,Limit Switch Connector 1,JST_EH_B2B-EH-A_1x02_P2.50mm_Vertical,157,-115.75,90,top
+CN2,Limit Switch Connector 2,JST_EH_B2B-EH-A_1x02_P2.50mm_Vertical,157.1,-103.4,90,top
+D1,D_Schottky,D_2114_3652Metric,119.5375,-104.35,0,top
+D2,D_Schottky,D_2114_3652Metric,113.0375,-102.85,90,top
+D4,SRV05-4.TCT,SOT-23-6,122.9,-88.5,90,top
+D5,ws2812b,LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm,114.45,-46.35,0,top
+FB1,FerriteBead,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,137.15,-59.5,0,top
+J1,Microsemi_FlashPro-JTAG-10,PinHeader_2x05_P1.27mm_Vertical,126.895,-31.99,0,top
+J2,USB_C_Receptacle,USB_C_Receptacle_HRO_TYPE-C-31-M-12,114.54,-88.8,-90,top
+J3,Micro_SD_Card,microSD_HC_Molex_47219-2001,117.85,-72.75,-90,top
+J4,Screw_Terminal_01x02,JST_EH_B2B-EH-A_1x02_P2.50mm_Vertical,157.1,-86.1,90,top
+J5,Screw_Terminal_01x02,JST_EH_B2B-EH-A_1x02_P2.50mm_Vertical,157.1,-94.7,90,top
+J6,Conn_01x05_Pin,JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical,142.9,-126.65,180,top
+J7,Conn_01x04_Pin,JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical,140.8,-117.65,180,top
+PowerLED1,RLED,LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder,112.5625,-41.3,0,top
+R1,27r,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,136.2,-84.35,180,top
+R2,120r,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,157.1,-40.1,-90,top
+R3,10k,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,122.6,-54.6,90,top
+R4,10k,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,117.3,-62.95,0,top
+R5,1k,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,115.3625,-40.3,90,top
+R6,5.1k,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,123.8,-93.8,-90,top
+R7,5.1k,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,121.9,-83.9,0,top
+R8,33r,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,127.9,-75,180,top
+R9,10k,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,126.55,-69.6,-90,top
+R10,10k,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,129.9,-66.8,90,top
+R11,27r,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,136.4,-80.85,180,top
+R12,10k,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,155.761307,-120.0675,0,top
+R13,10k,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,156.9,-107.7,0,top
+R14,10k,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,131.2,-72,90,top
+RSTSwitch1,SAMZO G4R0015010,SAMZO G4R0015010,115,-52.85,0,top
+U1,SN65HVD230,SOIC-8_3.9x4.9mm_P1.27mm,153.1,-42,90,top
+U2,LDL1117-3.3,SOT230P700X180-4N,128,-101.6,0,top
+U3,STM32F405RGT6,LQFP-64_10x10mm_P0.5mm,150,-67.8,-90,top
+U5,LSM6DS3TR-C,LGA-14-2.5X3MM,134.1,-67.1,90,top
+U7,Bosch BMP388,PQFN50P200X200X80-10N,134.8,-73.2,180,top
+Y1,8mhz,Crystal_SMD_3225-4Pin_3.2x2.5mm_HandSoldering,152.4275,-55.03125,180,top
