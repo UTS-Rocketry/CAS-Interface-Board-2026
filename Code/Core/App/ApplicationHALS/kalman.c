@@ -20,13 +20,13 @@ void kalman_init(void) {
     kf.R_altitude = 2.5f; /* static noise var measured at 0.70 (std 0.835m); inflated */
 }
 
-void kalman_predict(float accel_z_mg, float dt) {
+void kalman_predict(float accel_axis_mg, float dt) {
     // Sanity check inputs — reject garbage on first call
-    if (isnan(accel_z_mg) || isinf(accel_z_mg)) return;
+    if (isnan(accel_axis_mg) || isinf(accel_axis_mg)) return;
     if (dt <= 0.0f || dt > 1.0f) return;
 
-    // z_mg_IMU reads ~1000mg at rest (1g), subtract gravity
-    float accel_ms2  = (accel_z_mg / 1000.0f) * 9.81f;
+    // Rocket-axis input reads ~1000 mg at rest (1g), subtract gravity
+    float accel_ms2  = (accel_axis_mg / 1000.0f) * 9.81f;
     // float accel_true = accel_ms2 - 9.81f;
     float accel_true = accel_ms2 - 9.81f - kf.accel_bias;
 

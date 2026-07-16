@@ -86,7 +86,7 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined symbols
     # SERVO_TEST
     # SERVO_CHARACTERIZE
-    HIL_SIM
+    # HIL_SIM
 )
 
 # Remove wrong libob.a library dependency when using cpp files

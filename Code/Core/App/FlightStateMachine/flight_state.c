@@ -47,7 +47,7 @@ HAL_StatusTypeDef FSM_update(FlightSensorData *sensorData, uint8_t imu_read, uin
             /* If imu detects more threshold */
 
             if(imu_read) {
-                if(sensorData->z_mg_IMU >= LAUNCH_ACCEL_THRESHOLD_MG) {
+                if(sensorData->x_mg_IMU >= LAUNCH_ACCEL_THRESHOLD_MG) {
                     ctx.launch_count++;
                 }
                 else {
@@ -77,7 +77,7 @@ HAL_StatusTypeDef FSM_update(FlightSensorData *sensorData, uint8_t imu_read, uin
             // change when accel = around < 2 gs
             if(imu_read) {
                 
-                if(sensorData->z_mg_IMU <= BURNOUT_ACCEL_THRESHOLD_MG) {
+                if(sensorData->x_mg_IMU <= BURNOUT_ACCEL_THRESHOLD_MG) {
                 ctx.burnout_count++;
                 
                 }
@@ -253,4 +253,3 @@ FlightState_t FSM_get_state(void) {
     return ctx.state;
 
 }
-

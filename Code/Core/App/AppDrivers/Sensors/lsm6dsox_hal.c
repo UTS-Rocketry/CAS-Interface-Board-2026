@@ -43,7 +43,8 @@ HAL_StatusTypeDef lsm6dso_init(lsm6dso_HandleTypedef *l6)
   
   /* Check device ID */
   resultINT = lsm6dsox_device_id_get(&dev_ctx, &whoamI);
-  printf("IMU WHO_AM_I = 0x%02X (expect 0x6C)\r\n", whoamI);
+  printf("IMU WHO_AM_I = 0x%02X (expect 0x%02X)\r\n",
+         whoamI, LSM6DSOX_ID);
 
   if (resultINT != 0) {
     return HAL_ERROR;
@@ -203,10 +204,11 @@ HAL_StatusTypeDef lsm6dso_Calib(float *xl_Offset, float *gy_Offset) {
 
   }
 
-  /* driver provided functions to convert to float*/
-  xl_Offset[0] = lsm6dsox_from_fs16_to_mg((int16_t)(xl_Store[0] / 100)) - 0.0f;
+  /* The vertically fitted board has the rocket's positive longitudinal axis
+     aligned with sensor +X. Preserve +1 g on X at rest and zero Y/Z. */
+  xl_Offset[0] = lsm6dsox_from_fs16_to_mg((int16_t)(xl_Store[0] / 100)) - 1000.0f;
   xl_Offset[1] = lsm6dsox_from_fs16_to_mg((int16_t)(xl_Store[1] / 100)) - 0.0f;
-  xl_Offset[2] = lsm6dsox_from_fs16_to_mg((int16_t)(xl_Store[2] / 100)) - 1000.0f;
+  xl_Offset[2] = lsm6dsox_from_fs16_to_mg((int16_t)(xl_Store[2] / 100)) - 0.0f;
   
   gy_Offset[0] =lsm6dsox_from_fs2000_to_mdps((int16_t)(gy_Store[0]/ 100));
   gy_Offset[1] =lsm6dsox_from_fs2000_to_mdps((int16_t)(gy_Store[1]/ 100));

@@ -192,7 +192,7 @@ HAL_StatusTypeDef flight_sensors_update_IMU_accel(FlightSensorData *d) {
     if (FSM_get_state() >= STATE_PAD && sim_idx < SIM_LEN - 1) {
         sim_idx++;
     }
-    d->z_mg_IMU = sim_accel_mg[sim_idx];
+    d->x_mg_IMU = sim_accel_mg[sim_idx];
     return HAL_OK;
 }
 

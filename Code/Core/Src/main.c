@@ -262,7 +262,7 @@ int main(void)
       #endif
       
       (void)imu_result;
-      kalman_predict(sensorData.z_mg_IMU, dt);
+      kalman_predict(sensorData.x_mg_IMU, dt);
       sensorData.kalman_altitude = kalman_get_altitude();
       sensorData.kalman_velocity = kalman_get_velocity();
       imu_sensor_read = 1;
@@ -290,7 +290,7 @@ int main(void)
               FSM_get_state(),
               sensorData.kalman_altitude,
               sensorData.kalman_velocity,
-              sensorData.z_mg_IMU);
+              sensorData.x_mg_IMU);
         }
       #endif
     }

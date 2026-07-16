@@ -2,7 +2,7 @@
 #define FLIGHT_CONFIG_H
 
 /* ── Launch detect ─────────────────────────────────── */
-#define LAUNCH_ACCEL_THRESHOLD_MG       3000.0f   /* 3g on IMU z axis */
+#define LAUNCH_ACCEL_THRESHOLD_MG       3000.0f   /* 3g on rocket axis (IMU +X) */
 #define LAUNCH_CONFIRM_SAMPLES          5          /* consecutive samples */
 
 /* ── Burnout detect ────────────────────────────────── */
