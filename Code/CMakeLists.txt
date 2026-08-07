@@ -53,7 +53,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/App/AppDrivers/Sensors/lsm6dsox_hal.c
 
     #Core/App/AppDrivers/GPS/GPS.c
-    #Core/App/AppDrivers/CAN/CAN.c
+    Core/App/AppDrivers/CAN/CAN.c
 
     Core/App/ApplicationHALS/flight_sensors.c
     Core/App/ApplicationHALS/kalman.c
@@ -73,7 +73,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     Core/App/AppDrivers/Sensors
     
     #Core/App/AppDrivers/GPS
-    #Core/App/AppDrivers/CAN
+    Core/App/AppDrivers/CAN
 
     Core/App/ApplicationHALS
     Core/App/FlightStateMachine
@@ -87,6 +87,7 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     # SERVO_TEST
     # SERVO_CHARACTERIZE
     # HIL_SIM
+    DEBUG
 )
 
 # Remove wrong libob.a library dependency when using cpp files

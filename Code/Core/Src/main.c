@@ -27,6 +27,7 @@
 #include "kalman.h"
 #include <stdlib.h>
 #include "airbrake.h"
+#include "CAN.h"
 
 /* USER CODE END Includes */
 
@@ -46,7 +47,7 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-CAN_HandleTypeDef hcan2;
+//CAN_HandleTypeDef hcan2;
 
 IWDG_HandleTypeDef hiwdg;
 
@@ -67,7 +68,7 @@ uint8_t baro_sensor_read = 0;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_CAN2_Init(void);
+//static void MX_CAN2_Init(void);
 static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_SPI2_Init(void);
@@ -179,7 +180,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_CAN2_Init();
+  //MX_CAN2_Init();
   MX_USB_OTG_FS_PCD_Init();
   MX_SPI1_Init();
   MX_SPI2_Init();
@@ -224,12 +225,25 @@ int main(void)
   servo_set_us(SERVO_AIRBRAKE, SERVO_US_MIN);
   HAL_Delay(800);
 
+  result = Can_init();
+
+  #ifdef DEBUG
+    if (result != HAL_OK) {
+      printf("CAN init failed\r\n");
+    } else { 
+      printf("CAN OK\r\n");
+    }
+  #endif
+
   //MX_IWDG_Init();
 
 
-  uint32_t last_imu   = 0;
-  uint32_t last_baro  = 0;
-  uint32_t last_airbrake = 0;
+  static uint32_t last_imu   = 0;
+  static uint32_t last_baro  = 0;
+  static uint32_t last_airbrake = 0;
+  static uint32_t last_hb_ms = 0;
+
+  uint8_t dummy = 0;
  
   #ifdef DEBUG
     if (__HAL_RCC_GET_FLAG(RCC_FLAG_IWDGRST)) printf("!!! IWDG RESET !!!\r\n");
@@ -262,6 +276,7 @@ int main(void)
       #endif
       
       (void)imu_result;
+      /* Change to correct orientation for upward detection */
       kalman_predict(sensorData.x_mg_IMU, dt);
       sensorData.kalman_altitude = kalman_get_altitude();
       sensorData.kalman_velocity = kalman_get_velocity();
@@ -309,6 +324,17 @@ int main(void)
     }
 
     sensorData.flight_state = FSM_get_state();
+
+    if (now - last_hb_ms >= 500 && FSM_get_state() <= STATE_PAD) {
+      last_hb_ms = now;
+      HAL_StatusTypeDef can_result = can_transmit(KESTREL, HEARTBEAT_MSG, &dummy, 0);
+
+      #ifdef DEBUG
+        if (can_result != HAL_OK) {
+          printf("CAN TX failed: %d\r\n", can_result);
+        }
+      #endif
+    }
 
     /* USER CODE END WHILE */
 
@@ -368,37 +394,37 @@ void SystemClock_Config(void)
   * @param None
   * @retval None
   */
-static void MX_CAN2_Init(void)
-{
+// static void MX_CAN2_Init(void)
+// {
 
-  /* USER CODE BEGIN CAN2_Init 0 */
+//   /* USER CODE BEGIN CAN2_Init 0 */
 
-  /* USER CODE END CAN2_Init 0 */
+//   /* USER CODE END CAN2_Init 0 */
 
-  /* USER CODE BEGIN CAN2_Init 1 */
+//   /* USER CODE BEGIN CAN2_Init 1 */
 
-  /* USER CODE END CAN2_Init 1 */
-  hcan2.Instance = CAN2;
-  hcan2.Init.Prescaler = 16;
-  hcan2.Init.Mode = CAN_MODE_NORMAL;
-  hcan2.Init.SyncJumpWidth = CAN_SJW_1TQ;
-  hcan2.Init.TimeSeg1 = CAN_BS1_1TQ;
-  hcan2.Init.TimeSeg2 = CAN_BS2_1TQ;
-  hcan2.Init.TimeTriggeredMode = DISABLE;
-  hcan2.Init.AutoBusOff = DISABLE;
-  hcan2.Init.AutoWakeUp = DISABLE;
-  hcan2.Init.AutoRetransmission = DISABLE;
-  hcan2.Init.ReceiveFifoLocked = DISABLE;
-  hcan2.Init.TransmitFifoPriority = DISABLE;
-  if (HAL_CAN_Init(&hcan2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN CAN2_Init 2 */
+//   /* USER CODE END CAN2_Init 1 */
+//   hcan2.Instance = CAN2;
+//   hcan2.Init.Prescaler = 16;
+//   hcan2.Init.Mode = CAN_MODE_NORMAL;
+//   hcan2.Init.SyncJumpWidth = CAN_SJW_1TQ;
+//   hcan2.Init.TimeSeg1 = CAN_BS1_1TQ;
+//   hcan2.Init.TimeSeg2 = CAN_BS2_1TQ;
+//   hcan2.Init.TimeTriggeredMode = DISABLE;
+//   hcan2.Init.AutoBusOff = DISABLE;
+//   hcan2.Init.AutoWakeUp = DISABLE;
+//   hcan2.Init.AutoRetransmission = DISABLE;
+//   hcan2.Init.ReceiveFifoLocked = DISABLE;
+//   hcan2.Init.TransmitFifoPriority = DISABLE;
+//   if (HAL_CAN_Init(&hcan2) != HAL_OK)
+//   {
+//     Error_Handler();
+//   }
+//   /* USER CODE BEGIN CAN2_Init 2 */
 
-  /* USER CODE END CAN2_Init 2 */
+//   /* USER CODE END CAN2_Init 2 */
 
-}
+// }
 
 /**
   * @brief IWDG Initialization Function
