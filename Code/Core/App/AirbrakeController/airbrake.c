@@ -90,7 +90,12 @@ float airbrake_update(const FlightSensorData *data, float dt) {
      * Where are we heading right now?
      */
     s_predicted_apogee = predict_apogee_energy(altitude_m, velocity_ms);
-    printf("Predicted Apogee: %.2f \n\r", s_predicted_apogee);
+    
+    #ifdef DEBUG 
+
+        printf("Predicted Apogee: %.2f \n\r", s_predicted_apogee);
+    
+    #endif
 
     /*
      * STEP 2 - ERROR

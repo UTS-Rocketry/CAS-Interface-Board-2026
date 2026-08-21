@@ -82,14 +82,18 @@
  */
 #define AIRBRAKE_MAX_SLEW_PER_UPDATE 0.05f     /* max change in fraction per call */
 
+//in meteres
 #define AIRBRAKE_TARGET_APOGEE_M    3048.0f   // your target (single source of truth)
+
 #define AIRBRAKE_V_BRAKE_MAX_MS      250.0f   // structural/Mach cap - from sim
 #define AIRBRAKE_ALT_BRAKE_MIN_M     300.0f   // clear of rail transient
 #define AIRBRAKE_MIN_COAST_SPEED_MS   20.0f
 #define AIRBRAKE_SLEW_RATE_PER_SEC     2.0f   // fraction/sec
 #define AIRBRAKE_DEPLOY_MIN            0.0f
 #define AIRBRAKE_DEPLOY_MAX            1.0f
+//gain
 #define AIRBRAKE_KP                    0.0015f
+
 #define AIRBRAKE_G                     9.80665f
 #define AIRBRAKE_V_BRAKE_MAX_MS        250.0f   /* structural/Mach cap - FROM SIM */
 #define AIRBRAKE_ALT_BRAKE_MIN_M       300.0f   /* clear of rail transient - FROM SIM */

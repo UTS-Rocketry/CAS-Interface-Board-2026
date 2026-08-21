@@ -218,12 +218,6 @@ int main(void)
   kalman_init();
   FSM_init();
   airbrake_init();
-  servo_set_us(SERVO_AIRBRAKE, SERVO_US_MID);
-  HAL_Delay(800);
-  servo_set_us(SERVO_AIRBRAKE, SERVO_US_MAX);
-  HAL_Delay(800);
-  servo_set_us(SERVO_AIRBRAKE, SERVO_US_MIN);
-  HAL_Delay(800);
 
   result = Can_init();
 
@@ -259,7 +253,7 @@ int main(void)
   while (1)
   { 
     /* Watch dog woof woof*/
-    //HAL_IWDG_Refresh(&hiwdg);
+   //HAL_IWDG_Refresh(&hiwdg);
     
     /*This is to get timing loop*/
     
@@ -325,7 +319,7 @@ int main(void)
 
     sensorData.flight_state = FSM_get_state();
 
-    if (now - last_hb_ms >= 500 && FSM_get_state() <= STATE_PAD) {
+    /*if (now - last_hb_ms >= 500 && FSM_get_state() <= STATE_PAD) {
       last_hb_ms = now;
       HAL_StatusTypeDef can_result = can_transmit(KESTREL, HEARTBEAT_MSG, &dummy, 0);
 
@@ -335,6 +329,7 @@ int main(void)
         }
       #endif
     }
+    */
 
     /* USER CODE END WHILE */
 
