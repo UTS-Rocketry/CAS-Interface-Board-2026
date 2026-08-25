@@ -28,6 +28,7 @@
 #include <stdlib.h>
 #include "airbrake.h"
 #include "CAN.h"
+#include "airbrake_test.h"
 
 /* USER CODE END Includes */
 
@@ -218,6 +219,16 @@ int main(void)
   kalman_init();
   FSM_init();
   airbrake_init();
+  
+  /*
+  servo_set_us(SERVO_AIRBRAKE, SERVO_US_MID);
+  HAL_Delay(800);
+  servo_set_us(SERVO_AIRBRAKE, SERVO_US_MAX);
+  HAL_Delay(800);
+  servo_set_us(SERVO_AIRBRAKE, SERVO_US_MIN);
+  HAL_Delay(800);
+  */
+
 
   result = Can_init();
 
@@ -304,12 +315,17 @@ int main(void)
       #endif
     }
 
-  
+    #ifdef AIRBRAKE_TEST_SEQUENCE
+        airbrake_test_update(now);
+    #endif
+
+    /* Airbrake p controller */
     if(now - last_airbrake >= 100 && FSM_get_state() == STATE_COAST) {
       float dt = (now - last_airbrake) / 1000.0f;
       last_airbrake = now; 
       airbrake_update(&sensorData, dt);
     }
+    
 
     if(imu_sensor_read || baro_sensor_read) {
       FSM_update(&sensorData, imu_sensor_read, baro_sensor_read);

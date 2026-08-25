@@ -19,7 +19,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 # Set the project name
-set(CMAKE_PROJECT_NAME Code)
+set(CMAKE_PROJECT_NAME CAScode)
 
 # Enable compile command to ease indexing with e.g. clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
@@ -62,6 +62,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/App/FlightStateMachine/flight_state.c
 
     Core/App/Outputs/servo.c
+    Core/App/AirbrakeController/airbrake_test.c
 )
 
 # Add include paths
@@ -87,7 +88,8 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     # SERVO_TEST
     # SERVO_CHARACTERIZE
     # HIL_SIM
-    DEBUG
+    # DEBUG
+    # AIRBRAKE_TEST_SEQUENCE
 )
 
 # Remove wrong libob.a library dependency when using cpp files

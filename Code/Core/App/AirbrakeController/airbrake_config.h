@@ -25,7 +25,7 @@
  *   Test flights with smaller motors: set this lower to match the motor.
  * This is the single most important number to set correctly before a flight.
  */
-#define AIRBRAKE_TARGET_APOGEE_M     3048.0f   /* 10,000 ft. CHANGE per flight. */
+#define AIRBRAKE_TARGET_APOGEE_M     1700.0f   /* 10,000 ft. CHANGE per flight. */
 
 /* ---- PHYSICAL CONSTANTS ----------------------------------------------------*/
 #define AIRBRAKE_G                   9.80665f  /* gravity, m/s^2 */
@@ -45,7 +45,7 @@
  * small -> brakes barely move and you overshoot the target. You will tune
  * this in simulation first, then refine on real flight data.
  */
-#define AIRBRAKE_KP                  0.0015f   /* deploy fraction per metre of overshoot */
+#define AIRBRAKE_KP                  0.005f   /* deploy fraction per metre of overshoot */
 
 /* ---- DEPLOYMENT LIMITS -----------------------------------------------------
  * Safety clamps on commanded deployment. The controller output is always
@@ -68,7 +68,7 @@
  * The controller also refuses to act unless velocity is upward (ascending),
  * because energy-method apogee prediction only makes sense while climbing.
  */
-#define AIRBRAKE_MIN_COAST_SPEED_MS  20.0f     /* stop actuating below this upward speed */
+#define AIRBRAKE_MIN_COAST_SPEED_MS  5.0f     /* stop actuating below this upward speed */
 
 /* ---- SLEW LIMIT (rate limiting) --------------------------------------------
  * Maximum change in deployment fraction per control update. This prevents the
@@ -80,22 +80,25 @@
  * Example: at 20 Hz (dt = 0.05 s) a slew of 0.05 means the brakes can move at
  * most 0.05 fraction per cycle = 1.0 fraction per second (full travel in 1 s).
  */
-#define AIRBRAKE_MAX_SLEW_PER_UPDATE 0.05f     /* max change in fraction per call */
+#define AIRBRAKE_MAX_SLEW_PER_UPDATE 0.08f     /* max change in fraction per call */
 
-//in meteres
-#define AIRBRAKE_TARGET_APOGEE_M    3048.0f   // your target (single source of truth)
 
 #define AIRBRAKE_V_BRAKE_MAX_MS      250.0f   // structural/Mach cap - from sim
 #define AIRBRAKE_ALT_BRAKE_MIN_M     300.0f   // clear of rail transient
-#define AIRBRAKE_MIN_COAST_SPEED_MS   20.0f
-#define AIRBRAKE_SLEW_RATE_PER_SEC     2.0f   // fraction/sec
-#define AIRBRAKE_DEPLOY_MIN            0.0f
-#define AIRBRAKE_DEPLOY_MAX            1.0f
-//gain
-#define AIRBRAKE_KP                    0.0015f
 
-#define AIRBRAKE_G                     9.80665f
-#define AIRBRAKE_V_BRAKE_MAX_MS        250.0f   /* structural/Mach cap - FROM SIM */
-#define AIRBRAKE_ALT_BRAKE_MIN_M       300.0f   /* clear of rail transient - FROM SIM */
+//#define AIRBRAKE_MIN_COAST_SPEED_MS   20.0f
+
+#define AIRBRAKE_SLEW_RATE_PER_SEC     2.0f   // fraction/sec
+
+//#define AIRBRAKE_DEPLOY_MIN            0.0f
+//#define AIRBRAKE_DEPLOY_MAX            1.0f
+
+//gain
+// #define AIRBRAKE_KP                    0.05f
+
+//#define AIRBRAKE_G                     9.80665f
+
+//#define AIRBRAKE_V_BRAKE_MAX_MS        250.0f   /* structural/Mach cap - FROM SIM */
+//#define AIRBRAKE_ALT_BRAKE_MIN_M       300.0f   /* clear of rail transient - FROM SIM */
 
 #endif /* AIRBRAKE_CONFIG_H */
