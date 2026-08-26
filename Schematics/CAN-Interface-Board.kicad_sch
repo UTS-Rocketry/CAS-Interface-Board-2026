@@ -2138,6 +2138,52 @@
 		)
 	)
 	(sheet
+		(at 186.69 30.48)
+		(size 29.21 16.51)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "016f15b3-d7e1-4499-be9c-94912637ba87")
+		(property "Sheetname" "FlashChip"
+			(at 186.69 29.7684 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Flash_chip.kicad_sch"
+			(at 186.69 47.5746 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "CAN-Interface-Board"
+				(path "/8a3e7f99-4046-40e8-bd7c-d9d1c8c7162e"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
 		(at 105.41 107.95)
 		(size 21.59 17.78)
 		(exclude_from_sim no)

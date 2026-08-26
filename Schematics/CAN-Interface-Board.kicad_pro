@@ -811,6 +811,10 @@
       "CAN-Interface-Board"
     ],
     [
+      "016f15b3-d7e1-4499-be9c-94912637ba87",
+      "FlashChip"
+    ],
+    [
       "5582202c-f32a-4245-a5f8-7aec56821a23",
       "CAN Transciever"
     ],
