@@ -25,7 +25,7 @@
  *   Test flights with smaller motors: set this lower to match the motor.
  * This is the single most important number to set correctly before a flight.
  */
-#define AIRBRAKE_TARGET_APOGEE_M     1700.0f   /* 10,000 ft. CHANGE per flight. */
+#define AIRBRAKE_TARGET_APOGEE_M     2000.0f   /* 10,000 ft. CHANGE per flight. */
 
 /* ---- PHYSICAL CONSTANTS ----------------------------------------------------*/
 #define AIRBRAKE_G                   9.80665f  /* gravity, m/s^2 */
@@ -86,19 +86,7 @@
 #define AIRBRAKE_V_BRAKE_MAX_MS      250.0f   // structural/Mach cap - from sim
 #define AIRBRAKE_ALT_BRAKE_MIN_M     300.0f   // clear of rail transient
 
-//#define AIRBRAKE_MIN_COAST_SPEED_MS   20.0f
 
 #define AIRBRAKE_SLEW_RATE_PER_SEC     2.0f   // fraction/sec
-
-//#define AIRBRAKE_DEPLOY_MIN            0.0f
-//#define AIRBRAKE_DEPLOY_MAX            1.0f
-
-//gain
-// #define AIRBRAKE_KP                    0.05f
-
-//#define AIRBRAKE_G                     9.80665f
-
-//#define AIRBRAKE_V_BRAKE_MAX_MS        250.0f   /* structural/Mach cap - FROM SIM */
-//#define AIRBRAKE_ALT_BRAKE_MIN_M       300.0f   /* clear of rail transient - FROM SIM */
 
 #endif /* AIRBRAKE_CONFIG_H */

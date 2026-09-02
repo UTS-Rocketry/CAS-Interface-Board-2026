@@ -89,6 +89,8 @@ int _write(int file, char *ptr, int len) {
 }
 
 #endif
+
+
 #ifdef SERVO_CHARACTERIZE
 
 /* Read one line of digits from UART5 into buf (blocking). Returns length. */

@@ -63,6 +63,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
 
     Core/App/Outputs/servo.c
     Core/App/AirbrakeController/airbrake_test.c
+    Core/App/AirbrakeController/apogee_predict.c
 )
 
 # Add include paths
@@ -87,9 +88,11 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined symbols
     # SERVO_TEST
     # SERVO_CHARACTERIZE
-    # HIL_SIM
-    # DEBUG
+    HIL_SIM
+    DEBUG
     # AIRBRAKE_TEST_SEQUENCE
+    flight3
+    # flight2
 )
 
 # Remove wrong libob.a library dependency when using cpp files

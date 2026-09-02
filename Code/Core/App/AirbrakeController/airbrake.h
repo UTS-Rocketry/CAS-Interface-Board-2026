@@ -13,14 +13,16 @@
  *  DESIGN PRINCIPLE: controller-agnostic interface.
  *
  *  The functions below describe WHAT the controller does (take state, return a
- *  deploy fraction) without exposing HOW (proportional now; PID or LQR or MPC
- *  later). main.c and the FSM only ever call this interface. That means you
- *  can completely rewrite the algorithm inside airbrake.c - swap the simple
- *  proportional law for LQR after you have flight data - WITHOUT changing a
- *  single line in main.c or the servo driver. This separation (interface vs
- *  implementation) is one of the most important ideas in embedded/systems
- *  software. It is why we can fly a dumb-but-safe controller first and upgrade
- *  later with zero risk to the surrounding plumbing.
+ *  deploy fraction) without exposing HOW. main.c and the FSM only ever call
+ *  this interface, so the algorithm inside airbrake.c can be rewritten without
+ *  changing a single line in main.c or the servo driver. This separation
+ *  (interface vs implementation) is one of the most important ideas in
+ *  embedded/systems software.
+ *
+ *  It has already paid off once: the implementation moved from a pure
+ *  proportional law on an energy-method prediction to an inverse-model
+ *  feedforward on a drag-aware prediction, and nothing outside airbrake.c
+ *  needed to change - only one getter was added.
  *
  *  THE ABSTRACTION: the controller speaks in "deploy fraction" (0.0 = stowed,
  *  1.0 = fully deployed), NOT microseconds or servo angles. It knows physics,
@@ -31,28 +33,53 @@
  * ============================================================================
  */
 
-/* Reset internal state. Call once before flight (e.g. at FSM init), and the
+/* Reset internal state. Call once before flight (e.g. at FSM init); the
  * controller assumes brakes start stowed. */
 void airbrake_init(void);
 
 /*
  * Run one control update.
  *
- *   altitude_m : current altitude AGL in metres (from Kalman filter)
- *   velocity_ms: current VERTICAL velocity in m/s, POSITIVE UP (from Kalman)
- *   dt_s       : time since last update, seconds (for slew limiting)
+ *   data : current flight state. Uses kalman_altitude, kalman_velocity,
+ *          pressure (PASCALS), temperature (CELSIUS) and flight_state.
+ *   dt   : time since last update, seconds (for slew limiting)
  *
  * Returns the commanded deploy fraction in [0.0, 1.0].
  *
- * This function is PURE in spirit: same inputs -> same output (aside from the
- * remembered previous fraction used for slew limiting). It does NOT touch the
- * servo, the FSM, or any global - it just computes a number. The caller
- * decides whether to apply it. That makes it trivial to test and reason about.
+ * NOTE: unlike the previous revision, this DOES command the servo (via
+ * servo_set_fraction / servo_set_us) as well as returning the fraction. The
+ * return value is the same number that was applied.
  */
 float airbrake_update(const FlightSensorData *data, float dt);
 
-/* For telemetry / debugging: expose what the controller last computed. */
-float airbrake_get_predicted_apogee(void);   /* metres AGL */
-float airbrake_get_last_fraction(void);       /* 0..1 */
+/* ---- telemetry / debugging ------------------------------------------------
+ * Log all four of these. The pair of apogee predictions lets the drag-aware
+ * model be checked against the old energy method on real flight data, and
+ * airbrake_target_reachable() answers the question the old telemetry could
+ * not: was the target ever achievable in the first place?
+ */
+
+/* Drag-aware predicted apogee at the commanded deployment, metres AGL.
+ * This is the one used for control. */
+float airbrake_get_predicted_apogee(void);
+
+/* Old energy-method prediction, metres AGL. Computed for comparison ONLY -
+ * never used for control. Ignores drag, so it always reads high. */
+float airbrake_get_predicted_apogee_energy(void);
+
+/* Last commanded deploy fraction actually applied, 0..1 (post slew limit). */
+float airbrake_get_last_fraction(void);
+
+/*
+ * False when the target apogee lies outside what the brakes can achieve from
+ * the current state - either below the full-brakes apogee (will overshoot) or
+ * above the stowed apogee (will undershoot). In that case the commanded
+ * fraction is pinned at the corresponding rail.
+ *
+ * This is a VEHICLE CAPABILITY signal, not a controller fault. On every L1410
+ * test flight the 1800 m target was unreachable, and no amount of gain tuning
+ * could have fixed it.
+ */
+bool airbrake_target_reachable(void);
 
 #endif /* AIRBRAKE_H */

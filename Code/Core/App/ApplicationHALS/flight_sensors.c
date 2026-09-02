@@ -4,6 +4,7 @@
 #include "lsm6dsox_reg.h"
 #include "main.h"
 #include "stm32f4xx_hal_def.h"
+#include <math.h>
 
 extern SPI_HandleTypeDef hspi1;
 
@@ -183,9 +184,10 @@ HAL_StatusTypeDef flight_sensors_update_IMU_accel(FlightSensorData *sensordata) 
 }
 
 #else
+
 #include "sim_profile.h"
 #include "flight_state.h"
-static uint32_t sim_idx = 0;
+static uint32_t sim_idx = 20500;
 
 HAL_StatusTypeDef flight_sensors_update_IMU_accel(FlightSensorData *d) {
     // hold on the pad sample until armed (FSM reaches PAD), then play the flight
@@ -198,6 +200,20 @@ HAL_StatusTypeDef flight_sensors_update_IMU_accel(FlightSensorData *d) {
 
 HAL_StatusTypeDef flight_sensors_update_baro(FlightSensorData *d) {
     d->altitude = sim_alt[sim_idx];
+
+    /* The sim profile only carries altitude, but the drag-aware apogee
+     * predictor needs pressure and temperature to compute air density.
+     * Synthesise them from altitude with the ISA barometric formula so the
+     * predictor sees a physically sensible atmosphere.
+     *
+     * NOTE: this means HIL exercises the predictor MATH but NOT the real
+     * sensor path or its units. Verify BMP388 output units separately. */
+    const float T0 = 288.15f;      /* ISA sea-level temperature, K */
+    const float P0 = 101325.0f;    /* ISA sea-level pressure, Pa   */
+    const float L  = 0.0065f;      /* lapse rate, K/m              */
+    float T = T0 - L * d->altitude;
+    d->pressure    = P0 * powf(T / T0, 5.25588f);
+    d->temperature = T - 273.15f;  /* struct carries CELSIUS */
     return HAL_OK;
 }
 #endif
