@@ -284,7 +284,7 @@ int main(void)
       
       (void)imu_result;
       /* Change to correct orientation for upward detection */
-      kalman_predict(sensorData.x_mg_IMU, dt);
+      kalman_predict(sensorData.x_mg_IMU, dt, FSM_get_state() >= STATE_BOOST);
       sensorData.kalman_altitude = kalman_get_altitude();
       sensorData.kalman_velocity = kalman_get_velocity();
       imu_sensor_read = 1;
@@ -301,7 +301,7 @@ int main(void)
       
       (void) baro_result;
       
-      kalman_update(sensorData.altitude);
+      kalman_update(sensorData.altitude, FSM_get_state() >= STATE_BOOST);
       sensorData.kalman_altitude = kalman_get_altitude();
       sensorData.kalman_velocity = kalman_get_velocity();
       baro_sensor_read = 1;
