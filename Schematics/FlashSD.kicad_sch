@@ -778,432 +778,157 @@
 		)
 		(uuid "a6bc43fd-86b1-4c73-a69f-7f294b179c91")
 	)
-	(no_connect
-		(at 149.86 86.36)
-		(uuid "15101747-10be-40cd-9727-e0cd23b8719d")
-	)
-	(no_connect
-		(at 149.86 104.14)
-		(uuid "51d9b1cd-e1d2-47fb-99d9-f5f9c2c20cbc")
-	)
-	(wire
-		(pts
-			(xy 147.32 93.98) (xy 149.86 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5b406feb-52e2-4756-8532-0bdf94968b74")
-	)
-	(wire
-		(pts
-			(xy 105.41 91.44) (xy 149.86 91.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "65527318-0d65-4a6e-ae43-858ba00f58bc")
-	)
-	(wire
-		(pts
-			(xy 120.65 88.9) (xy 123.19 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "844bbf02-049c-4ebe-b46b-a260909f7417")
-	)
-	(wire
-		(pts
-			(xy 115.57 96.52) (xy 149.86 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8f469f9f-48b9-4423-afc0-f0b544490ff0")
-	)
-	(wire
-		(pts
-			(xy 105.41 101.6) (xy 149.86 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c0436e31-2587-427a-9d10-fa1a0b3ee28f")
-	)
-	(wire
-		(pts
-			(xy 147.32 99.06) (xy 149.86 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d18952dc-d16d-41d0-9db6-9bf1f657b042")
-	)
-	(wire
-		(pts
-			(xy 130.81 88.9) (xy 149.86 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "db72b438-0294-40a3-99d8-aeb6e11d414d")
-	)
-	(wire
-		(pts
-			(xy 105.41 96.52) (xy 107.95 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f1e66fcf-2bd2-4964-9909-c3da173203c2")
-	)
-	(hierarchical_label "SDCLK"
-		(shape input)
-		(at 105.41 96.52 180)
+	(text "SD Card for flight telemetry logging and possible lookup tables for control systems"
+		(exclude_from_sim no)
+		(at 156.21 72.644 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
 		)
-		(uuid "42f1ed0a-453b-4c1c-893d-9966a6645f39")
+		(uuid "aa1e4f8d-b3b6-4de5-af2a-91b49621127a")
+	)
+	(junction
+		(at 128.27 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4f1c957f-ff35-476a-b97a-5151110d515b")
+	)
+	(no_connect
+		(at 147.32 88.9)
+		(uuid "5cb93290-b251-4015-bbc2-5a56ac98ad87")
+	)
+	(no_connect
+		(at 147.32 106.68)
+		(uuid "937ee238-cf7e-4bf6-9c2d-7bfdebd60678")
+	)
+	(wire
+		(pts
+			(xy 102.87 104.14) (xy 147.32 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "063bfa91-2d0b-4c73-8863-82eb1ec2eaae")
+	)
+	(wire
+		(pts
+			(xy 144.78 96.52) (xy 147.32 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "266564c9-c249-436b-a243-1ec900133bd0")
+	)
+	(wire
+		(pts
+			(xy 102.87 93.98) (xy 147.32 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "26ee2196-18dd-4d29-8a58-9c798ba84013")
+	)
+	(wire
+		(pts
+			(xy 102.87 91.44) (xy 128.27 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7dbaccab-97c5-429e-9436-48b997da7b8f")
+	)
+	(wire
+		(pts
+			(xy 102.87 99.06) (xy 147.32 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "83a5556f-188f-49f4-b234-d1882ae677b7")
+	)
+	(wire
+		(pts
+			(xy 195.58 111.76) (xy 190.5 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8ab0051-28e4-4d82-b9d3-f719385d942e")
+	)
+	(wire
+		(pts
+			(xy 128.27 91.44) (xy 147.32 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aea556bd-ded0-42b9-8a6f-43cb60918ef3")
+	)
+	(wire
+		(pts
+			(xy 144.78 101.6) (xy 147.32 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db96fe36-32fa-4848-b4bc-df53c73df66f")
 	)
 	(hierarchical_label "SDMOSI"
 		(shape input)
-		(at 105.41 91.44 180)
+		(at 102.87 93.98 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right)
 		)
-		(uuid "5ae2f6b1-f4a8-4d31-a7d6-b771db41abcf")
+		(uuid "47cb9067-3626-4c69-9384-c436699dd7df")
 	)
 	(hierarchical_label "SDMISO"
 		(shape input)
-		(at 105.41 101.6 180)
+		(at 102.87 104.14 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right)
 		)
-		(uuid "b7a56644-3cf8-4e04-b7f1-f552318654cb")
+		(uuid "4dc9bbc3-2a53-4af5-b618-a8b27af9e2c1")
 	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 147.32 93.98 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "08ec0712-1e73-4d83-af0f-cc66363151db")
-		(property "Reference" "#PWR064"
-			(at 151.13 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+	(hierarchical_label "SDCLK"
+		(shape input)
+		(at 102.87 99.06 180)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify right)
 		)
-		(property "Value" "+3.3V"
-			(at 143.51 93.9799 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 147.32 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "4623d49d-9fd6-4c25-9587-932632819abf")
-		)
-		(instances
-			(project "CAN-Interface-Board"
-				(path "/8a3e7f99-4046-40e8-bd7c-d9d1c8c7162e/90a33a35-ba22-452a-8971-c9b1cdf9eace"
-					(reference "#PWR064")
-					(unit 1)
-				)
-			)
-		)
+		(uuid "6e8e4407-d024-4a88-a526-f851256a07af")
 	)
-	(symbol
-		(lib_id "Device:R")
-		(at 127 88.9 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9fc9e814-c43c-413b-a2d7-e90a34948b5f")
-		(property "Reference" "R9"
-			(at 126.746 85.09 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+	(hierarchical_label "ChipSelectSDCARD"
+		(shape input)
+		(at 102.87 91.44 180)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify right)
 		)
-		(property "Value" "10k"
-			(at 126.746 86.868 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 127 90.678 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 127 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 127 88.9 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part" "C84376"
-			(at 127 88.9 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C84376"
-			(at 127 88.9 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 127 88.9 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d756213f-ed0f-486d-9fcb-9561ee5ca544")
-		)
-		(pin "2"
-			(uuid "16a0d558-247d-4e1a-8b06-78090ba06c57")
-		)
-		(instances
-			(project "CAN-Interface-Board"
-				(path "/8a3e7f99-4046-40e8-bd7c-d9d1c8c7162e/90a33a35-ba22-452a-8971-c9b1cdf9eace"
-					(reference "R9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 111.76 96.52 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a13e9c68-0b7f-453b-acaa-fa992b529cf3")
-		(property "Reference" "R8"
-			(at 111.76 94.488 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "33r"
-			(at 111.76 98.806 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 111.76 98.298 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 111.76 96.52 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 111.76 96.52 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part" "C17557"
-			(at 111.76 96.52 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C126353"
-			(at 111.76 96.52 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 111.76 96.52 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "00ad6eea-b3ac-455f-91b9-7c767010f685")
-		)
-		(pin "1"
-			(uuid "d692673d-0077-4984-8fad-3800cd9bf894")
-		)
-		(instances
-			(project "CAN-Interface-Board"
-				(path "/8a3e7f99-4046-40e8-bd7c-d9d1c8c7162e/90a33a35-ba22-452a-8971-c9b1cdf9eace"
-					(reference "R8")
-					(unit 1)
-				)
-			)
-		)
+		(uuid "dd6af651-856d-4019-9cc4-4028f6cd0a60")
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 147.32 99.06 270)
+		(at 195.58 111.76 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1212,9 +937,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "aa4b6098-ac7e-41ef-b9f5-4bf9b1747879")
-		(property "Reference" "#PWR065"
-			(at 140.97 99.06 0)
+		(uuid "35195fb4-f5a3-4929-9130-8d345064d345")
+		(property "Reference" "#PWR089"
+			(at 201.93 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1225,7 +950,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 143.51 99.0599 90)
+			(at 199.39 111.7599 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1236,7 +961,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 147.32 99.06 0)
+			(at 195.58 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1247,7 +972,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 147.32 99.06 0)
+			(at 195.58 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1258,7 +983,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 147.32 99.06 0)
+			(at 195.58 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1269,224 +994,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "a06b17d4-0665-4326-bdc3-16415a283cdb")
+			(uuid "ba845f3c-c3e9-42d2-98f1-aa3438682601")
 		)
 		(instances
 			(project "CAN-Interface-Board"
 				(path "/8a3e7f99-4046-40e8-bd7c-d9d1c8c7162e/90a33a35-ba22-452a-8971-c9b1cdf9eace"
-					(reference "#PWR065")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 193.04 109.22 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c1b7f642-de16-4f59-a9c5-cd300474fa50")
-		(property "Reference" "#PWR03"
-			(at 193.04 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 193.04 114.3 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 193.04 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 193.04 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 193.04 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d44f157c-1ea5-48d6-aec9-105466c99227")
-		)
-		(instances
-			(project "CAN-Interface-Board"
-				(path "/8a3e7f99-4046-40e8-bd7c-d9d1c8c7162e/90a33a35-ba22-452a-8971-c9b1cdf9eace"
-					(reference "#PWR03")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Micro_SD_Card")
-		(at 172.72 93.98 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d1087edb-d662-47e7-82ea-2944d3728b5c")
-		(property "Reference" "J3"
-			(at 173.355 74.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Micro_SD_Card"
-			(at 173.355 77.47 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_Card:microSD_HC_Molex_47219-2001"
-			(at 201.93 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/693072010801.pdf"
-			(at 172.72 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 172.72 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part" "C164170"
-			(at 172.72 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C164170"
-			(at 172.72 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SnapEDA_Link" ""
-			(at 172.72 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "715ce6d6-18f0-4b28-bcaf-95ec27a5c514")
-		)
-		(pin "1"
-			(uuid "2283c219-2b6e-4a1b-b133-9a0756ebbcf8")
-		)
-		(pin "6"
-			(uuid "2f713422-cd50-4cf0-bf63-927a72914216")
-		)
-		(pin "4"
-			(uuid "5ccafcdd-5eb7-421a-9a1d-9ac258a540e4")
-		)
-		(pin "5"
-			(uuid "af3b6b1e-58cd-4c81-af71-c0c47205e11d")
-		)
-		(pin "3"
-			(uuid "f9ebc37d-f6d6-4421-8d26-bca27e65ca82")
-		)
-		(pin "9"
-			(uuid "ca6d09b6-ac19-43cf-a376-9143ba6220eb")
-		)
-		(pin "8"
-			(uuid "2c8853e4-a720-49f1-ab96-6ceaada79762")
-		)
-		(pin "7"
-			(uuid "dda87098-d615-4812-89b2-08299ad53bb1")
-		)
-		(instances
-			(project "CAN-Interface-Board"
-				(path "/8a3e7f99-4046-40e8-bd7c-d9d1c8c7162e/90a33a35-ba22-452a-8971-c9b1cdf9eace"
-					(reference "J3")
+					(reference "#PWR089")
 					(unit 1)
 				)
 			)
@@ -1494,7 +1007,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 120.65 88.9 90)
+		(at 144.78 96.52 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1502,10 +1015,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d58f463d-5506-40f4-8200-0ddcba47dbe1")
-		(property "Reference" "#PWR063"
-			(at 124.46 88.9 0)
+		(uuid "3d21b178-6ea8-483a-8f97-8e590f885c26")
+		(property "Reference" "#PWR077"
+			(at 148.59 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1516,7 +1028,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 116.84 88.8999 90)
+			(at 140.97 96.5199 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1527,7 +1039,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 120.65 88.9 0)
+			(at 144.78 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1538,7 +1050,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 120.65 88.9 0)
+			(at 144.78 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1549,7 +1061,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 120.65 88.9 0)
+			(at 144.78 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1560,7 +1072,586 @@
 			)
 		)
 		(pin "1"
-			(uuid "d9f80b07-b002-46f3-9434-579d07bc387e")
+			(uuid "ce8ef5cf-7cf3-4abb-8ac2-9d0cef0d1760")
+		)
+		(instances
+			(project "CAN-Interface-Board"
+				(path "/8a3e7f99-4046-40e8-bd7c-d9d1c8c7162e/90a33a35-ba22-452a-8971-c9b1cdf9eace"
+					(reference "#PWR077")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 144.78 101.6 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "42bc48c2-b951-478b-b4cb-baff6084189c")
+		(property "Reference" "#PWR083"
+			(at 138.43 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 140.97 101.5999 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 144.78 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 144.78 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 144.78 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7b8c1fa9-f9b3-4157-a5b6-3409d2d3b574")
+		)
+		(instances
+			(project "CAN-Interface-Board"
+				(path "/8a3e7f99-4046-40e8-bd7c-d9d1c8c7162e/90a33a35-ba22-452a-8971-c9b1cdf9eace"
+					(reference "#PWR083")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 128.27 87.63 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "77ca3a21-5a9b-4e78-b6fa-ba41e46a8dd8")
+		(property "Reference" "R15"
+			(at 131.572 86.868 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 131.826 88.646 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+			(at 126.492 87.63 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 128.27 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 128.27 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description_1" ""
+			(at 128.27 87.63 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 128.27 87.63 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 128.27 87.63 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Package" ""
+			(at 128.27 87.63 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 128.27 87.63 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Purchase-URL" ""
+			(at 128.27 87.63 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C17414"
+			(at 128.27 87.63 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 128.27 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 128.27 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 128.27 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 128.27 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "63f445d1-41f4-4af8-930d-9a5ed56274e1")
+		)
+		(pin "2"
+			(uuid "97e473a6-13a8-43e6-bf1c-1836bdfafdb7")
+		)
+		(instances
+			(project "CAN-Interface-Board"
+				(path "/8a3e7f99-4046-40e8-bd7c-d9d1c8c7162e/90a33a35-ba22-452a-8971-c9b1cdf9eace"
+					(reference "R15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Micro_SD_Card")
+		(at 170.18 96.52 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "868793e1-f32a-477d-9d1a-da846d2580eb")
+		(property "Reference" "J8"
+			(at 170.815 77.47 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Micro_SD_Card"
+			(at 170.815 80.01 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_Card:microSD_HC_Molex_47219-2001"
+			(at 199.39 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/693072010801.pdf"
+			(at 170.18 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Micro SD Card Socket"
+			(at 170.18 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description_1" ""
+			(at 170.18 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MF" ""
+			(at 170.18 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MP" ""
+			(at 170.18 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Package" ""
+			(at 170.18 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" ""
+			(at 170.18 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Purchase-URL" ""
+			(at 170.18 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C164170"
+			(at 170.18 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" ""
+			(at 170.18 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" ""
+			(at 170.18 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PARTREV" ""
+			(at 170.18 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "STANDARD" ""
+			(at 170.18 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "9bfdcf46-bdbf-4455-b447-6edb49eb2fd6")
+		)
+		(pin "1"
+			(uuid "c6bff01a-59fa-4bbf-9554-85389dbe3958")
+		)
+		(pin "6"
+			(uuid "50fff0b3-6991-4bc6-ab5f-039539d4189a")
+		)
+		(pin "4"
+			(uuid "a6202fab-0406-4bca-926f-0b5a65ae3074")
+		)
+		(pin "5"
+			(uuid "1c2ca587-34a0-4aff-a826-930a0b5ca5c6")
+		)
+		(pin "3"
+			(uuid "b8883629-eaa1-452b-8a1c-89e673cd563d")
+		)
+		(pin "9"
+			(uuid "662843e0-aaaa-48fc-ab63-37ca94721d1c")
+		)
+		(pin "8"
+			(uuid "43674ff4-2baa-482a-8664-5137e976e26e")
+		)
+		(pin "7"
+			(uuid "44ee6fc4-06b4-45ce-a815-4ad3d6c2edb0")
+		)
+		(instances
+			(project "CAN-Interface-Board"
+				(path "/8a3e7f99-4046-40e8-bd7c-d9d1c8c7162e/90a33a35-ba22-452a-8971-c9b1cdf9eace"
+					(reference "J8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 128.27 83.82 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c3c01215-173d-497a-9821-7625a646cb72")
+		(property "Reference" "#PWR063"
+			(at 128.27 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 128.27 78.74 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 128.27 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 128.27 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 128.27 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "364ec849-c6b5-49f0-a21d-caea62bf77ae")
 		)
 		(instances
 			(project "CAN-Interface-Board"
