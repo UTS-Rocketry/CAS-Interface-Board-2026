@@ -87,6 +87,16 @@
 #define AIRBRAKE_ALT_BRAKE_MIN_M     300.0f   // clear of rail transient
 
 
+/* Bench/first-call dt guard: bounds the slew-limit step size in case the
+ * caller's dt is abnormally large. Concretely, main.c's `last_airbrake`
+ * timer is a static uint32_t that only gets updated while in STATE_COAST -
+ * so the FIRST call after entering COAST computes dt against time since
+ * boot (seconds), not the intended ~0.1 s control period. That inflates
+ * max_step past 1.0 and defeats the slew limiter on exactly the command
+ * where you most want it (the first actuation of the flight). Clamping dt
+ * here fixes it regardless of what main.c's timer is doing. */
+#define AIRBRAKE_MAX_DT_S            0.20f    /* a bit above the intended control period */
+
 #define AIRBRAKE_SLEW_RATE_PER_SEC     2.0f   // fraction/sec
 
 #endif /* AIRBRAKE_CONFIG_H */

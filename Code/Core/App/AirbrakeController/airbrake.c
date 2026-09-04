@@ -155,11 +155,15 @@ float airbrake_update(const FlightSensorData *data, float dt)
     commanded = clampf(commanded, AIRBRAKE_DEPLOY_MIN, AIRBRAKE_DEPLOY_MAX);
 
     /*
-     * STEP 5 - SLEW LIMIT (unchanged)
+     * STEP 5 - SLEW LIMIT
      * Respects how fast the servo can physically move and avoids jerking the
      * airframe with instantaneous full-throw commands.
+     *
+     * dt is clamped first: see AIRBRAKE_MAX_DT_S in airbrake_config.h for why
+     * an unclamped dt can silently defeat this limiter on the first call.
      */
-    const float max_step = AIRBRAKE_SLEW_RATE_PER_SEC * dt;
+    const float dt_bounded = clampf(dt, 0.0f, AIRBRAKE_MAX_DT_S);
+    const float max_step = AIRBRAKE_SLEW_RATE_PER_SEC * dt_bounded;
     const float step     = clampf(commanded - s_last_fraction, -max_step, max_step);
     s_last_fraction = clampf(s_last_fraction + step,
                              AIRBRAKE_DEPLOY_MIN, AIRBRAKE_DEPLOY_MAX);

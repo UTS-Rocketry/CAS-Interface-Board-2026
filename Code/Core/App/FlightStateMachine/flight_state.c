@@ -1,7 +1,9 @@
 #include "flight_state.h"
 #include "stm32f4xx_hal.h"
 #include "flight_config.h"
+#include "servo.h"
 #include <stdint.h>
+#include <string.h>
 #include <math.h>
 
 
@@ -70,9 +72,14 @@ HAL_StatusTypeDef FSM_update(FlightSensorData *sensorData, uint8_t imu_read, uin
                 #ifdef DEBUG
                     printf("FSM: BOOST\r\n");
                 #endif
+                /* Airbrake stow-and-lock. airbrake_update() is only ever
+                 * called from main.c during STATE_COAST, so nothing else
+                 * commands the servo through IDLE/PAD/BOOST — whatever
+                 * position it was left in from bench handling would
+                 * otherwise ride straight through max-Q. Force it stowed
+                 * here explicitly rather than relying on that. */
+                servo_set_us(SERVO_AIRBRAKE, SERVO_US_MIN);
             }
-
-            //lock pyro
 
             // change when accel = around < 2 gs
             if(imu_read) {
@@ -144,7 +151,12 @@ HAL_StatusTypeDef FSM_update(FlightSensorData *sensorData, uint8_t imu_read, uin
                 #ifdef DEBUG
                     printf("FSM: APOGEE\r\n");
                 #endif
-                
+
+                /* Retract and lock brakes for descent — nothing else does
+                 * this once COAST ends, so without it the servo just
+                 * holds whatever fraction airbrake_update() last commanded
+                 * and rides deployed into DROGUE/PARAFOIL. */
+                servo_set_us(SERVO_AIRBRAKE, SERVO_US_MIN);
 
                 /* ADD LORA TRANSMISSION */
                 /* If apogee is less than Main deployment alt */

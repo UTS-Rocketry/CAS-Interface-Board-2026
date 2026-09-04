@@ -2,13 +2,26 @@
 #include <string.h>
 #include <math.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 static KalmanFilter_t kf;
+
+// Consecutive-reject resync: see Odin's kalman.c for the full writeup. Short
+// version: the 5-sigma gate protects against a single glitched baro sample,
+// but a sustained disagreement (real high-dynamics event, or here on Kestrel
+// possibly a loop stall during a control cycle) can reject for multiple
+// samples in a row. Left alone that's unrecoverable — P[0] only grows
+// linearly per predict step while an uncorrected predict-only error grows
+// quadratically, so the gate can never catch back up once it starts
+// rejecting. Force a resync after too many consecutive rejects.
+#define MAX_CONSECUTIVE_REJECTS 10
+static uint8_t reject_streak = 0;
 
 void kalman_init(void) {
     kf.altitude   = 0.0f;
     kf.velocity   = 0.0f;
     kf.accel_bias = 0.0f;
+    reject_streak = 0;
 
     memset(kf.P, 0, sizeof(kf.P));
     kf.P[0] = 1.0f;
@@ -18,7 +31,7 @@ void kalman_init(void) {
     kf.Q_altitude = 0.1f;
     kf.Q_velocity = 0.1f;
     kf.Q_bias     = 0.01f;
-    kf.R_altitude = 2.5f; /* static noise var measured at 0.70 (std 0.835m); inflated */
+    kf.R_altitude = 0.03f; /* static noise var measured at 0.70 (std 0.835m); inflated */
 }
 
 void kalman_predict(float accel_axis_mg, float dt, bool freeze_bias) {
@@ -97,8 +110,15 @@ void kalman_update(float baro_altitude, bool freeze_bias) {
     // coning) yanking the whole state. Tune sigma once validated offline.
     float innovation_std = sqrtf(S);
     if (fabsf(y) > 5.0f * innovation_std) {
-        return;
+        reject_streak++;
+        if (reject_streak < MAX_CONSECUTIVE_REJECTS) {
+            return;
+        }
+        // Reached the streak limit — force-accept this sample to resync
+        // rather than staying locked out. Falls through to the normal
+        // correction below.
     }
+    reject_streak = 0;
 
     float S_inv = 1.0f / S;
 

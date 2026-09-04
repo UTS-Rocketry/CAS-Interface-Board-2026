@@ -50,11 +50,19 @@ static float clampf(float x, float lo, float hi) {
 
 float apogee_predict(const ApogeeState *s, float deploy_fraction)
 {
-    /* --- guards: never let a bad sample produce a wild command --- */
+    /* --- guards: never let a bad sample produce a wild command ---
+     * NaN needs its own explicit check: `x < 150.0f` and `x > 400.0f` are
+     * BOTH false when x is NaN, so the range checks below silently let a NaN
+     * temperature or mass through instead of catching it - same failure
+     * class as an unguarded comparison anywhere else in the pipeline. */
     if (s == NULL) return 0.0f;
-    if (isnan(s->altitude_m) || isnan(s->velocity_ms)) return s->altitude_m;
+    if (isnan(s->altitude_m) || isnan(s->velocity_ms) ||
+        isnan(s->pressure_pa) || isnan(s->temperature_k) || isnan(s->mass_kg)) {
+        return s->altitude_m;
+    }
     if (s->velocity_ms <= 0.0f) return s->altitude_m;   /* past apogee */
     if (s->mass_kg < 0.1f)      return s->altitude_m;   /* nonsense mass */
+    if (s->pressure_pa <= 0.0f) return s->altitude_m;   /* nonsense pressure - was unguarded */
     if (s->temperature_k < 150.0f || s->temperature_k > 400.0f) {
         return s->altitude_m;                            /* bad temp reading */
     }
