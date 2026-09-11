@@ -10,6 +10,13 @@ static float s_last_fraction;        /* previous deploy command, for slew limiti
 static float s_predicted_apogee;     /* drag-aware prediction, for telemetry       */
 static float s_predicted_apogee_energy; /* old energy-method prediction, LOGGED ONLY */
 static bool  s_target_reachable;     /* false => target outside brake authority    */
+static uint32_t s_t_boost_ms = 0;
+static uint8_t  s_clock_zeroed = 0;
+
+void airbrake_log_zero_clock(void) {
+    s_t_boost_ms = HAL_GetTick();
+    s_clock_zeroed = 1;
+}
 
 /* Force x into [lo, hi]. Saturation is fundamental to real actuators: a servo
  * cannot deploy to 1.3 or -0.2, so every controller MUST clamp its output. */
@@ -125,7 +132,7 @@ float airbrake_update(const FlightSensorData *data, float dt)
     float commanded = apogee_required_fraction(&st,
                                                AIRBRAKE_TARGET_APOGEE_M,
                                                &s_target_reachable);
-
+    const float commanded_raw = commanded;   /* pre-clamp, pre-slew -- for logging only */
     /*
      * STEP 3 - PREDICT AT THE COMMANDED DEPLOYMENT (telemetry)
      * Where we are actually heading given what we just commanded.
@@ -169,6 +176,28 @@ float airbrake_update(const FlightSensorData *data, float dt)
                              AIRBRAKE_DEPLOY_MIN, AIRBRAKE_DEPLOY_MAX);
 
     servo_set_fraction(SERVO_AIRBRAKE, s_last_fraction);
+
+    #ifdef AIRBRAKE_TELEMETRY_LOG   /* NEW block */
+    if (s_clock_zeroed) {
+        uint32_t t_rel = HAL_GetTick() - s_t_boost_ms;
+        uint16_t servo_us = SERVO_US_MIN + (uint16_t)(s_last_fraction * (SERVO_US_MAX - SERVO_US_MIN));
+        /* deflection ANGLE not logged yet -- need real max-deflection degrees first,
+        * see conversation. servo_us is exact and known now; angle is a one-line
+        * add later: s_last_fraction * AIRBRAKE_DEFLECT_MAX_DEG */
+        printf("KAB,%lu,%.3f,%.3f,%u,%.1f,%.1f,%d,%.1f,%.1f\r\n",
+            (unsigned long)t_rel,
+            commanded_raw,
+            s_last_fraction,
+            servo_us,
+            s_predicted_apogee,
+            s_predicted_apogee_energy,
+            (int)s_target_reachable,
+            data->kalman_altitude,
+            data->kalman_velocity);
+    }
+
+    #endif
+    
     return s_last_fraction;
 }
 

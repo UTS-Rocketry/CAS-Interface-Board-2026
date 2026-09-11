@@ -81,5 +81,6 @@ float airbrake_get_last_fraction(void);
  * could have fixed it.
  */
 bool airbrake_target_reachable(void);
+void airbrake_log_zero_clock(void);
 
 #endif /* AIRBRAKE_H */

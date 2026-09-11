@@ -88,11 +88,13 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined symbols
     # SERVO_TEST
     # SERVO_CHARACTERIZE
-    HIL_SIM
-    DEBUG
+    # HIL_SIM
+    # DEBUG
     # AIRBRAKE_TEST_SEQUENCE
-    flight3
+    # flight3
     # flight2
+
+    AIRBRAKE_TELEMETRY_LOG
 )
 
 # Remove wrong libob.a library dependency when using cpp files

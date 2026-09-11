@@ -82,7 +82,7 @@ static void MX_IWDG_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 /* This is a debug printf that exposes uart through the gps header pins*/
-#ifdef DEBUG
+#if defined(DEBUG) || defined(AIRBRAKE_TELEMETRY_LOG)
 int _write(int file, char *ptr, int len) {
     HAL_UART_Transmit(&huart5, (uint8_t*)ptr, len, HAL_MAX_DELAY);
     return len;
@@ -227,9 +227,11 @@ int main(void)
   HAL_Delay(800);
   servo_set_us(SERVO_AIRBRAKE, SERVO_US_MAX);
   HAL_Delay(800);
+  */
   servo_set_us(SERVO_AIRBRAKE, SERVO_US_MIN);
   HAL_Delay(800);
-  */
+  
+  
 
 
   result = Can_init();
@@ -249,6 +251,7 @@ int main(void)
   static uint32_t last_baro  = 0;
   static uint32_t last_airbrake = 0;
   static uint32_t last_hb_ms = 0;
+  static uint8_t  boost_seen = 0;
 
   uint8_t dummy = 0;
  
@@ -336,6 +339,13 @@ int main(void)
     }
 
     sensorData.flight_state = FSM_get_state();
+
+    #ifdef AIRBRAKE_TELEMETRY_LOG
+    if (!boost_seen && FSM_get_state() == STATE_BOOST) {
+        boost_seen = 1;
+        airbrake_log_zero_clock();
+    }
+    #endif
 
     /*if (now - last_hb_ms >= 500 && FSM_get_state() <= STATE_PAD) {
       last_hb_ms = now;

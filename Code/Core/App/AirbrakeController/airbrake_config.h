@@ -25,7 +25,7 @@
  *   Test flights with smaller motors: set this lower to match the motor.
  * This is the single most important number to set correctly before a flight.
  */
-#define AIRBRAKE_TARGET_APOGEE_M     2000.0f   /* 10,000 ft. CHANGE per flight. */
+#define AIRBRAKE_TARGET_APOGEE_M     2500.0f   /* 10,000 ft. CHANGE per flight. */
 
 /* ---- PHYSICAL CONSTANTS ----------------------------------------------------*/
 #define AIRBRAKE_G                   9.80665f  /* gravity, m/s^2 */
